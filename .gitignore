@@ -1,0 +1,6 @@
+node_modules/
+build/
+site/
+tmp/
+.firebase/
+*.log

@@ -249,6 +249,16 @@ function everyActivity() {
   return out;
 }
 
+/* A "look it up" URL for a votable item. Uses the item's own `link`
+   when one is set, otherwise builds a Google search from its title
+   (plus the city name) so every card always has something to open. */
+function lookupLink(item) {
+  if (item && item.link) return item.link;
+  const cityName = item && item.city && CITIES[item.city] ? CITIES[item.city].name + " " : "";
+  const q = encodeURIComponent(cityName + ((item && item.title) || "") + " Japan");
+  return "https://www.google.com/search?q=" + q;
+}
+
 function dayByN(n) { return DAYS.filter(function (d) { return d.n === Number(n); })[0]; }
 function foodById(id) { return FOOD.filter(function (f) { return f.id === id; })[0]; }
 function segAfter(n) { return SEGMENTS.filter(function (s) { return s.afterDay === n; })[0]; }

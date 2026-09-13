@@ -472,6 +472,19 @@ input, select, textarea { font: inherit; color: inherit; }
 .opt-meta { font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); letter-spacing: .08em; }
 .opt.cut { opacity: .62; }
 
+.lookup {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 12px; font-weight: 500; letter-spacing: .02em;
+  color: var(--indigo); text-decoration: none;
+  border: 1px solid var(--line); border-radius: 100px;
+  padding: 4px 11px; margin: 2px 0;
+  transition: border-color .15s, background .15s;
+}
+.lookup:hover { border-color: var(--indigo); background: color-mix(in srgb, var(--indigo) 8%, transparent); text-decoration: none; }
+.lookup:focus-visible { outline: 2px solid var(--indigo); outline-offset: 2px; }
+.lookup span { font-size: 11px; }
+
 /* ---------------- crew ---------------- */
 .crew { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
 .person { border: 1px solid var(--line-soft); border-radius: var(--r-lg); background: var(--raised); padding: 16px; display: flex; gap: 13px; align-items: center; }

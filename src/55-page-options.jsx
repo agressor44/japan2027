@@ -64,6 +64,9 @@ function PageOptions() {
               <p className="opt-why">{o.why}</p>
               <div className="act-foot">{(o.tags || []).map(function (t) { return <Tag key={t} id={t} />; })}</div>
               <FitChips tags={o.tags} />
+              <a className="lookup" href={lookupLink(o)} target="_blank" rel="noopener noreferrer">
+                {o.link ? "Official site" : "Look it up"} <span aria-hidden="true">↗</span>
+              </a>
               <VoteBar itemId={o.id} />
             </article>
           );
@@ -93,6 +96,9 @@ function PageOptions() {
                 <StatusPill status={S.statusOf(a.id, a.status)} />
               </div>
               {a.note ? <p className="opt-why">{a.note}</p> : null}
+              <a className="lookup" href={lookupLink(a)} target="_blank" rel="noopener noreferrer">
+                {a.link ? "Official site" : "Look it up"} <span aria-hidden="true">↗</span>
+              </a>
               <VoteBar itemId={a.id} />
             </article>
           );

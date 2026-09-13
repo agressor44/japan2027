@@ -112,6 +112,11 @@ function ActivityCard({ a, cityId }) {
         {(a.tags || []).map(function (t) { return <Tag key={t} id={t} />; })}
       </div>
       <FitChips tags={a.tags} />
+      {a.votable ? (
+        <a className="lookup" href={lookupLink(a)} target="_blank" rel="noopener noreferrer">
+          {a.link ? "Official site" : "Look it up"} <span aria-hidden="true">↗</span>
+        </a>
+      ) : null}
       {a.votable ? <VoteBar itemId={a.id} /> : null}
     </article>
   );

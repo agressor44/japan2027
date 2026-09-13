@@ -45,7 +45,7 @@ const DAYS = [
         { id: "d2-catst", title: "Cat Street → Omotesandō", kind: "shopping", dur: "1.5 hrs", tags: ["adults", "shopping", "relaxed"], status: "planned", note: "Calmer, better designed, better coffee. Natural split point." }
       ],
       evening: [
-        { id: "d2-sky", title: "Shibuya Sky at sunset", jp: "渋谷スカイ", kind: "sight", dur: "1.5 hrs", tags: ["everyone", "views"], status: "reserve", note: "Timed tickets sell out. Book the slot ~45 min before sunset.", votable: true },
+        { id: "d2-sky", title: "Shibuya Sky at sunset", jp: "渋谷スカイ", kind: "sight", dur: "1.5 hrs", tags: ["everyone", "views"], status: "reserve", note: "Timed tickets sell out. Book the slot ~45 min before sunset.", votable: true, link: "https://www.shibuya-scramble-square.com/sky/en/" },
         { id: "d2-crossing-night", title: "Shibuya Crossing after dark", kind: "sight", dur: "30 min", tags: ["everyone", "nightlife"], status: "planned", note: "Completely different from the morning. Worth doing twice." },
         { id: "d2-dinner", title: "Dinner in Shibuya", kind: "food", dur: "1.5 hrs", tags: ["everyone", "food"], status: "planned", note: "Yakiniku or sushi — the two easiest wins for a group of nine." }
       ]
@@ -105,7 +105,7 @@ const DAYS = [
         items: [
           { id: "d4-odaiba", title: "Odaiba & DiverCity", jp: "お台場", kind: "sight", dur: "3 hrs", tags: ["teens", "anime"], status: "optional", note: "The life-size Unicorn Gundam transforms on a schedule.", votable: true },
           { id: "d4-joypolis", title: "Tokyo Joypolis", kind: "experience", dur: "3 hrs", tags: ["teens", "energy", "anime"], status: "optional", votable: true },
-          { id: "d4-ghibli", title: "Ghibli Museum", jp: "三鷹の森ジブリ美術館", kind: "experience", dur: "3 hrs", tags: ["everyone", "traditional"], status: "reserve", note: "Lottery months ahead. Nine tickets together is genuinely unlikely — decide who goes.", votable: true },
+          { id: "d4-ghibli", title: "Ghibli Museum", jp: "三鷹の森ジブリ美術館", kind: "experience", dur: "3 hrs", tags: ["everyone", "traditional"], status: "reserve", note: "Lottery months ahead. Nine tickets together is genuinely unlikely — decide who goes.", votable: true, link: "https://www.ghibli-museum.jp/en/" },
           { id: "d4-karaoke", title: "Private-room karaoke", jp: "カラオケ", kind: "experience", dur: "2 hrs", tags: ["everyone", "energy", "nightlife"], status: "planned", note: "One room fits nine. Do this somewhere in the Tokyo half — it's the cheapest great memory of the trip.", votable: true },
           { id: "d4-arcade", title: "Arcades & gachapon", kind: "experience", dur: "2 hrs", tags: ["teens", "anime"], status: "optional" }
         ]
@@ -132,7 +132,7 @@ const DAYS = [
         { id: "d5-maid", title: "Maid café", jp: "メイドカフェ", kind: "experience", dur: "1 hr", tags: ["teens", "anime"], status: "optional", note: "Deeply silly. Either a highlight or a hard no — put it to a vote.", votable: true }
       ],
       evening: [
-        { id: "d5-skytree", title: "Tokyo Skytree at sunset", jp: "東京スカイツリー", kind: "sight", dur: "2 hrs", tags: ["everyone", "views"], status: "reserve", note: "Timed entry. Pairs badly with Shibuya Sky on the same trip unless you want both heights.", votable: true },
+        { id: "d5-skytree", title: "Tokyo Skytree at sunset", jp: "東京スカイツリー", kind: "sight", dur: "2 hrs", tags: ["everyone", "views"], status: "reserve", note: "Timed entry. Pairs badly with Shibuya Sky on the same trip unless you want both heights.", votable: true, link: "https://www.tokyo-skytree.jp/en/" },
         { id: "d5-solamachi", title: "Tokyo Solamachi", kind: "shopping", dur: "1.5 hrs", tags: ["teens", "shopping", "anime"], status: "planned", note: "Pokémon Center Skytree Town is in here." },
         { id: "d5-dinner", title: "Dinner at Solamachi", kind: "food", dur: "1 hr", tags: ["everyone", "food"], status: "planned", note: "Whole floors of restaurants — easiest possible group dinner." }
       ]
@@ -149,11 +149,11 @@ const DAYS = [
     highlight: true,
     blocks: {
       morning: [
-        { id: "d6-teamlab", title: "teamLab Borderless", jp: "チームラボボーダレス", kind: "experience", dur: "2–3 hrs", tags: ["everyone", "anime", "energy"], status: "reserve", note: "Azabudai Hills. Timed tickets, released monthly, and they go. Wear something light — one room is ankle-deep water.", votable: true }
+        { id: "d6-teamlab", title: "teamLab Borderless", jp: "チームラボボーダレス", kind: "experience", dur: "2–3 hrs", tags: ["everyone", "anime", "energy"], status: "reserve", note: "Azabudai Hills. Timed tickets, released monthly, and they go. Wear something light — one room is ankle-deep water.", votable: true, link: "https://www.teamlab.art/e/borderless-azabudai/" }
       ],
       afternoon: [
         { id: "d6-azabudai", title: "Azabudai Hills & Roppongi", jp: "麻布台ヒルズ", kind: "sight", dur: "1.5 hrs", tags: ["adults", "relaxed"], status: "planned" },
-        { id: "d6-tokyotower", title: "Tokyo Tower", jp: "東京タワー", kind: "sight", dur: "1 hr", tags: ["everyone", "views"], status: "optional", votable: true },
+        { id: "d6-tokyotower", title: "Tokyo Tower", jp: "東京タワー", kind: "sight", dur: "1 hr", tags: ["everyone", "views"], status: "optional", votable: true, link: "https://www.tokyotower.co.jp/en/" },
         { id: "d6-zojoji", title: "Zōjō-ji", jp: "増上寺", kind: "sight", dur: "45 min", tags: ["everyone", "traditional"], status: "planned", note: "The temple-with-Tokyo-Tower-behind-it shot." },
         { id: "d6-bus", title: "Hop-on sightseeing bus", kind: "transit", dur: "1 hr", tags: ["relaxed", "everyone"], status: "optional", note: "Treat it as a rest with a view, not as transport." }
       ],
@@ -225,7 +225,7 @@ const DAYS = [
     blocks: {
       morning: [
         { id: "d9-kameoka", title: "Train to Kameoka", kind: "transit", dur: "40 min", tags: ["everyone"], status: "planned" },
-        { id: "d9-raft", title: "Hozugawa river boat ride", jp: "保津川下り", kind: "experience", dur: "2 hrs", tags: ["everyone", "outdoor", "energy"], status: "reserve", note: "Traditional flat boat, real rapids, boatmen poling the whole way. Ends in Arashiyama. Book for 9.", votable: true }
+        { id: "d9-raft", title: "Hozugawa river boat ride", jp: "保津川下り", kind: "experience", dur: "2 hrs", tags: ["everyone", "outdoor", "energy"], status: "reserve", note: "Traditional flat boat, real rapids, boatmen poling the whole way. Ends in Arashiyama. Book for 9.", votable: true, link: "https://www.hozugawakudari.jp/en" }
       ],
       afternoon: [
         { id: "d9-lunch", title: "Lunch in Arashiyama", kind: "food", dur: "1 hr", tags: ["everyone", "food"], status: "planned" },
@@ -250,11 +250,11 @@ const DAYS = [
       morning: [
         { id: "d10-bamboo", title: "Bamboo Grove", jp: "竹林の小径", kind: "sight", dur: "45 min", tags: ["everyone", "traditional", "outdoor"], status: "planned", note: "Non-negotiable early start. By 9am it is a slow-moving crowd.", votable: true },
         { id: "d10-tenryuji", title: "Tenryū-ji", jp: "天龍寺", kind: "sight", dur: "1 hr", tags: ["everyone", "traditional"], status: "planned", note: "The garden is the reason, not the hall." },
-        { id: "d10-monkey", title: "Iwatayama Monkey Park", jp: "嵐山モンキーパーク", kind: "experience", dur: "1.5 hrs", tags: ["teens", "outdoor", "energy"], status: "optional", note: "A genuine hill climb. The view at the top is the payoff.", votable: true }
+        { id: "d10-monkey", title: "Iwatayama Monkey Park", jp: "嵐山モンキーパーク", kind: "experience", dur: "1.5 hrs", tags: ["teens", "outdoor", "energy"], status: "optional", note: "A genuine hill climb. The view at the top is the payoff.", votable: true, link: "https://www.monkeypark.jp/english/" }
       ],
       afternoon: [
         { id: "d10-foodtour", title: "Kyoto food tour", kind: "food", dur: "3 hrs", tags: ["everyone", "food"], status: "reserve", note: "Guided, which solves the where-do-nine-people-eat problem for an afternoon.", votable: true },
-        { id: "d10-sagano", title: "Sagano scenic railway", jp: "嵯峨野トロッコ列車", kind: "experience", dur: "1 hr", tags: ["everyone", "relaxed", "views"], status: "optional", note: "Open-sided train through the gorge. Reserve — it sells out.", votable: true },
+        { id: "d10-sagano", title: "Sagano scenic railway", jp: "嵯峨野トロッコ列車", kind: "experience", dur: "1 hr", tags: ["everyone", "relaxed", "views"], status: "optional", note: "Open-sided train through the gorge. Reserve — it sells out.", votable: true, link: "https://www.sagano-kanko.co.jp/en/" },
         { id: "d10-tea", title: "Tea ceremony", jp: "茶道", kind: "experience", dur: "1 hr", tags: ["adults", "traditional", "relaxed"], status: "optional", votable: true },
         { id: "d10-kimono", title: "Kimono rental", jp: "着物レンタル", kind: "experience", dur: "Half day", tags: ["everyone", "traditional"], status: "optional", note: "Best done in Kyoto or Osaka, not both. Pick one.", votable: true }
       ],
@@ -275,7 +275,7 @@ const DAYS = [
     highlight: true,
     blocks: {
       morning: [
-        { id: "d11-fushimi", title: "Fushimi Inari Taisha", jp: "伏見稲荷大社", kind: "sight", dur: "2 hrs", tags: ["everyone", "traditional", "outdoor"], status: "planned", note: "Walk up as far as the Yotsutsuji viewpoint — about 30–40 min. The full summit loop is not required and will cost the day.", votable: true }
+        { id: "d11-fushimi", title: "Fushimi Inari Taisha", jp: "伏見稲荷大社", kind: "sight", dur: "2 hrs", tags: ["everyone", "traditional", "outdoor"], status: "planned", note: "Walk up as far as the Yotsutsuji viewpoint — about 30–40 min. The full summit loop is not required and will cost the day.", votable: true, link: "https://inari.jp/en/" }
       ],
       afternoon: [
         { id: "d11-samurai", title: "Samurai / ninja experience", jp: "侍・忍者体験", kind: "experience", dur: "2 hrs", tags: ["teens", "traditional", "energy"], status: "reserve", note: "Sword demonstration, armor, shuriken throwing — exact mix depends on the provider. Book for 9.", votable: true },
@@ -304,11 +304,11 @@ const DAYS = [
       ],
       afternoon: [
         { id: "d12-todaiji", title: "Tōdai-ji & the Great Buddha", jp: "東大寺", kind: "sight", dur: "1.5 hrs", tags: ["everyone", "traditional"], status: "planned", note: "One of the largest wooden buildings in the world, holding a 15-metre bronze Buddha." },
-        { id: "d12-kasuga", title: "Kasuga Taisha", jp: "春日大社", kind: "sight", dur: "1 hr", tags: ["adults", "traditional"], status: "optional", note: "Three thousand stone and bronze lanterns.", votable: true },
+        { id: "d12-kasuga", title: "Kasuga Taisha", jp: "春日大社", kind: "sight", dur: "1 hr", tags: ["adults", "traditional"], status: "optional", note: "Three thousand stone and bronze lanterns.", votable: true, link: "https://www.kasugataisha.or.jp/en/" },
         { id: "d12-toosaka", title: "Train on to Osaka & check in", kind: "transit", dur: "1.5 hrs", tags: ["everyone"], status: "reserve" }
       ],
       evening: [
-        { id: "d12-umeda", title: "Umeda Sky Building", jp: "梅田スカイビル", kind: "sight", dur: "1.5 hrs", tags: ["everyone", "views"], status: "reserve", note: "Open-air floating garden observatory. Go at dusk and stay for the lights.", votable: true },
+        { id: "d12-umeda", title: "Umeda Sky Building", jp: "梅田スカイビル", kind: "sight", dur: "1.5 hrs", tags: ["everyone", "views"], status: "reserve", note: "Open-air floating garden observatory. Go at dusk and stay for the lights.", votable: true, link: "https://www.skybldg.co.jp/en/" },
         { id: "d12-dinner", title: "Dinner in Umeda", kind: "food", dur: "1.5 hrs", tags: ["everyone", "food"], status: "planned", note: "Good candidate for the one nicer group dinner of the Osaka leg." }
       ]
     },
@@ -332,7 +332,7 @@ const DAYS = [
         { id: "d13-shinsaibashi", title: "Shinsaibashi & Amerikamura", jp: "心斎橋・アメ村", kind: "shopping", dur: "2.5 hrs", tags: ["teens", "shopping"], status: "planned", note: "Amerikamura is the streetwear/thrift quarter — a strong teen pick." }
       ],
       evening: [
-        { id: "d13-cruise", title: "Tombori River Cruise", jp: "とんぼりリバークルーズ", kind: "experience", dur: "30 min", tags: ["everyone", "views", "relaxed"], status: "reserve", note: "Twenty minutes on the canal under all the signs. Cheap, and the best view of Dōtonbori there is.", votable: true },
+        { id: "d13-cruise", title: "Tombori River Cruise", jp: "とんぼりリバークルーズ", kind: "experience", dur: "30 min", tags: ["everyone", "views", "relaxed"], status: "reserve", note: "Twenty minutes on the canal under all the signs. Cheap, and the best view of Dōtonbori there is.", votable: true, link: "https://www.ipponmatsu.co.jp/cruise/tombori.html" },
         { id: "d13-dotonbori", title: "Dōtonbori food crawl", jp: "道頓堀", kind: "food", dur: "3 hrs", tags: ["everyone", "food", "nightlife", "energy"], status: "planned", note: "Buy small portions at many stalls and share everything. Do not sit down for one big meal.", votable: true }
       ]
     },
@@ -358,9 +358,9 @@ const DAYS = [
         id: "d14-osaka", label: "Osaka wide", jp: "大阪めぐり", tags: ["everyone", "relaxed"],
         blurb: "Aquarium, retro Shinsekai, arcades and a slower last day.",
         items: [
-          { id: "d14-kaiyukan", title: "Osaka Aquarium Kaiyūkan", jp: "海遊館", kind: "experience", dur: "3 hrs", tags: ["everyone"], status: "optional", note: "One of the largest aquariums in the world — whale sharks.", votable: true },
+          { id: "d14-kaiyukan", title: "Osaka Aquarium Kaiyūkan", jp: "海遊館", kind: "experience", dur: "3 hrs", tags: ["everyone"], status: "optional", note: "One of the largest aquariums in the world — whale sharks.", votable: true, link: "https://www.kaiyukan.com/language/eng/" },
           { id: "d14-tempozan", title: "Tempōzan & the ferris wheel", kind: "sight", dur: "1 hr", tags: ["everyone", "views", "relaxed"], status: "optional" },
-          { id: "d14-shinsekai", title: "Shinsekai & Tsūtenkaku", jp: "新世界・通天閣", kind: "sight", dur: "2 hrs", tags: ["everyone", "nightlife", "food"], status: "optional", note: "1950s Osaka preserved in neon. Kushikatsu headquarters.", votable: true },
+          { id: "d14-shinsekai", title: "Shinsekai & Tsūtenkaku", jp: "新世界・通天閣", kind: "sight", dur: "2 hrs", tags: ["everyone", "nightlife", "food"], status: "optional", note: "1950s Osaka preserved in neon. Kushikatsu headquarters.", votable: true, link: "https://www.tsutenkaku.co.jp/" },
           { id: "d14-round1", title: "Round1 Stadium", kind: "experience", dur: "2 hrs", tags: ["teens", "energy"], status: "optional", note: "Arcade, bowling, batting cages, karaoke — all in one building.", votable: true },
           { id: "d14-animalcafe", title: "Animal café", kind: "experience", dur: "1 hr", tags: ["teens", "relaxed"], status: "optional", votable: true }
         ]

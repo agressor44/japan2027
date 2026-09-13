@@ -94,7 +94,13 @@ function StoreProvider({ children }) {
       const ref = f.db.doc(PLAN_DOC);
       // Firestore's set(..., {merge:true}) deep-merges maps and replaces
       // arrays wholesale — exactly the semantics patch() is written for.
-      docRef.current = { update: function (delta) { return ref.set(delta, { merge: true }); } };
+      // Expose both update() and set() so patch()'s set() fallback works
+      // against this backend too (a bare Firestore ref has .set; this
+      // wrapper must as well or the fallback throws).
+      docRef.current = {
+        update: function (delta) { return ref.set(delta, { merge: true }); },
+        set: function (full) { return ref.set(full, { merge: true }); }
+      };
       unsubDoc = ref.onSnapshot(function (snap) {
         if (!alive) return;
         setSync("shared");

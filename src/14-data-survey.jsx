@@ -47,16 +47,6 @@ const SURVEY = [
           { id: "night", label: "Night owl", sub: "Better after dark" },
           { id: "flexible", label: "Flexible", sub: "I'll go with whatever" }
         ]
-      },
-      {
-        id: "groupTendency", label: "Who you'd rather be with", type: "choice",
-        help: "Several days split the group on purpose — this helps sort them.",
-        options: [
-          { id: "whole", label: "The whole group", sub: "Keep everyone together" },
-          { id: "adults", label: "The adults", sub: "Slower, quieter, better dinners" },
-          { id: "kids", label: "With the kids", sub: "Wherever the young ones are" },
-          { id: "independent", label: "Off on my own", sub: "Give me a meeting time and a map" }
-        ]
       }
     ]
   },

@@ -99,11 +99,6 @@ function PageCrew() {
           <div>
             <div className="eyebrow">The occasion</div>
             <h3 className="display" style={{ fontSize: 21, margin: "6px 0 6px" }}>Lucy's graduation trip</h3>
-            <p style={{ color: "var(--ink-2)", fontSize: 14, maxWidth: "58ch" }}>
-              Lucy just finished high school and Japan 2027 is the celebration. Worth making
-              visible without bending every day around it — one evening that's hers to choose,
-              her must-do at the top of the list, and a say in the split-day tracks she cares about.
-            </p>
           </div>
         </div>
       </section>

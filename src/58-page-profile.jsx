@@ -41,6 +41,18 @@ function PageProfile() {
         <div style={{ marginTop: 12 }}>
           <Progress segments={[{ pct: pct, color: me.color, label: "Answered" }]} />
         </div>
+        <div style={{ marginTop: 14 }}>
+          <label className="qlabel" htmlFor="loves-field" style={{ display: "flex", alignItems: "center", gap: 6 }}>
+            <span style={{ color: "var(--vermilion)" }} aria-hidden="true">♥</span> What you love / are into
+          </label>
+          <p className="qhelp">Shows on your crew card so everyone knows what you're excited about. e.g. "BTS, anime, and all the nerdy Japan stuff."</p>
+          <input
+            id="loves-field" className="field"
+            value={profile.loves !== undefined ? profile.loves : (me.loves || "")}
+            placeholder="What are you most into?"
+            onChange={function (e) { S.saveProfile("loves", e.target.value); }}
+          />
+        </div>
       </div>
 
       <div className="filters" style={{ marginTop: 22 }}>

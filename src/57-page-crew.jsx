@@ -57,8 +57,10 @@ function PageCrew() {
               </header>
               <div className="fam-body">
                 {members.map(function (t) {
-                  const pct = profileCompletion(S.plan.profiles[t.id]);
+                  const prof = S.plan.profiles[t.id] || {};
+                  const pct = profileCompletion(prof);
                   const acct = claimed[t.id];
+                  const loves = (prof.loves !== undefined && prof.loves !== "") ? prof.loves : t.loves;
                   return (
                     <div key={t.id} className={"pcard " + (S.me === t.id ? "me" : "")}>
                       <Avatar t={t} />
@@ -74,7 +76,7 @@ function PageCrew() {
                           {t.occupation ? " · " + t.occupation : ""}
                         </div>
                         {t.tripRole ? <div className="pcard-r">{t.tripRole}</div> : null}
-                        {t.loves ? <div className="pcard-loves"><span aria-hidden="true">♥</span> {t.loves}</div> : null}
+                        {loves ? <div className="pcard-loves"><span aria-hidden="true">♥</span> {loves}</div> : null}
                         <div className="pcard-p">
                           <Progress segments={[{ pct: pct, color: t.color, label: "Profile" }]} />
                           <span className="num">{pct}%</span>

@@ -5,14 +5,29 @@
    =========================================================== */
 
 const DAYS = [
-  /* ---------------------------------------------------- 1 */
+  /* ---------------------------------------------------- 1 · Sat May 29 */
   {
-    n: 1, city: "tokyo", title: "Fly out & land in Tokyo", jp: "到着",
-    theme: "A travel day — do almost nothing on purpose",
-    intent: "We fly out Saturday and, with the time zones, land in Tokyo Sunday. Between the flight and jet lag, day one is gone — one light evening beats a wasted day two.",
+    n: 1, city: "tokyo", title: "Travel day", jp: "移動",
+    theme: "In transit — the whole day is the flight",
+    intent: "We fly out Saturday the 29th. Between the flight and the time change, this whole day is travel. Nothing is planned on purpose.",
+    arriveBy: "seg-nrt-hnd",
+    blocks: {
+      evening: [
+        { id: "d1-fly", title: "Fly to Japan", kind: "transit", dur: "All day", tags: ["everyone"], status: "planned", note: "Long-haul. Fill out Visit Japan Web before you land — it saves a long line at immigration." }
+      ]
+    },
+    food: [],
+    notes: ["Sleep on the plane if you can. Tomorrow is landing day.", "Have the first hotel's address written down before you take off."]
+  },
+
+  /* ---------------------------------------------------- 2 · Sun May 30 */
+  {
+    n: 2, city: "tokyo", title: "Land in Tokyo", jp: "到着",
+    theme: "Arrive Sunday — do almost nothing on purpose",
+    intent: "We land Sunday and jet lag is real for nine people. Check in, eat something easy, and sleep. One light evening beats a wasted first full day.",
     blocks: {
       afternoon: [
-        { id: "d1-arrive", title: "Arrival & immigration", kind: "transit", dur: "2–3 hrs", tags: ["everyone"], status: "planned", note: "Land Sunday. Visit Japan Web filled out in advance saves a long line." },
+        { id: "d1-arrive", title: "Arrival & immigration", kind: "transit", dur: "2–3 hrs", tags: ["everyone"], status: "planned", note: "Visit Japan Web filled out in advance saves a long line." },
         { id: "d1-checkin", title: "Hotel check-in", kind: "rest", dur: "1 hr", tags: ["everyone", "relaxed"], status: "reserve", note: "Nine people is likely 3–4 rooms. Book early for adjacent rooms." }
       ],
       evening: [
@@ -23,12 +38,12 @@ const DAYS = [
       ]
     },
     food: ["konbini-onigiri", "konbini-egg", "tokyo-ramen"],
-    notes: ["Keep this day deliberately empty.", "Get IC cards sorted tonight if they weren't pre-ordered."]
+    notes: ["Keep this evening deliberately empty.", "Get IC cards sorted tonight if they weren't pre-ordered."]
   },
 
-  /* ---------------------------------------------------- 2 */
+  /* ---------------------------------------------------- 3 · Mon */
   {
-    n: 2, city: "tokyo", title: "Shibuya & Harajuku", jp: "渋谷・原宿",
+    n: 3, city: "tokyo", title: "Shibuya & Harajuku", jp: "渋谷・原宿",
     theme: "The pop-culture day",
     intent: "Pop-culture Tokyo at full volume, bookended by a shrine and a sunset.",
     highlight: true,
@@ -56,7 +71,7 @@ const DAYS = [
 
   /* ---------------------------------------------------- 3 */
   {
-    n: 3, city: "tokyo", title: "DisneySea — or Tokyo your way", jp: "分かれ道",
+    n: 4, city: "tokyo", title: "DisneySea — or Tokyo your way", jp: "分かれ道",
     theme: "The split-group day",
     intent: "Not everyone wants a theme park. Nobody should have to — so the group splits for one day.",
     split: true,
@@ -92,7 +107,7 @@ const DAYS = [
 
   /* ---------------------------------------------------- 4 */
   {
-    n: 4, city: "tokyo", title: "Palace → Akihabara → Skytree", jp: "皇居・秋葉原・スカイツリー",
+    n: 5, city: "tokyo", title: "Palace → Akihabara → Skytree", jp: "皇居・秋葉原・スカイツリー",
     theme: "Old Tokyo, geek Tokyo, future Tokyo — in that order",
     intent: "One day that tells the whole story of the city, in sequence.",
     highlight: true,
@@ -115,56 +130,32 @@ const DAYS = [
     notes: ["The progression traditional → pop-culture → futuristic is the point. Don't reorder it."]
   },
 
-  /* ---------------------------------------------------- 6 */
+  /* ---------------------------------------------------- 6 · last Tokyo day */
   {
-    n: 5, city: "tokyo", title: "teamLab & neon Shinjuku", jp: "チームラボ・新宿",
-    theme: "Digital art by day, Blade Runner by night",
-    intent: "The most photographed thing the group will do, then the loudest.",
+    n: 6, city: "tokyo", title: "teamLab, sumo & last Tokyo night", jp: "チームラボ・相撲",
+    theme: "Digital art, then something nobody expected",
+    intent: "The most photographed thing the group will do, the sumo district, and one last neon night before the shinkansen.",
     highlight: true,
     blocks: {
       morning: [
         { id: "d6-teamlab", title: "teamLab Borderless", jp: "チームラボボーダレス", kind: "experience", dur: "2–3 hrs", tags: ["everyone", "anime", "energy"], status: "reserve", note: "Azabudai Hills. Timed tickets, released monthly, and they go. Wear something light — one room is ankle-deep water.", votable: true, link: "https://www.teamlab.art/e/borderless-azabudai/" }
       ],
       afternoon: [
-        { id: "d6-azabudai", title: "Azabudai Hills & Roppongi", jp: "麻布台ヒルズ", kind: "sight", dur: "1.5 hrs", tags: ["adults", "relaxed"], status: "planned" },
-        { id: "d6-tokyotower", title: "Tokyo Tower", jp: "東京タワー", kind: "sight", dur: "1 hr", tags: ["everyone", "views"], status: "optional", votable: true, link: "https://www.tokyotower.co.jp/en/" },
-        { id: "d6-zojoji", title: "Zōjō-ji", jp: "増上寺", kind: "sight", dur: "45 min", tags: ["everyone", "traditional"], status: "planned", note: "The temple-with-Tokyo-Tower-behind-it shot." },
-        { id: "d6-bus", title: "Hop-on sightseeing bus", kind: "transit", dur: "1 hr", tags: ["relaxed", "everyone"], status: "optional", note: "Treat it as a rest with a view, not as transport." }
-      ],
-      evening: [
-        { id: "d6-kabukicho", title: "Shinjuku & Kabukichō", jp: "歌舞伎町", kind: "sight", dur: "2 hrs", tags: ["everyone", "nightlife", "energy"], status: "planned", note: "Stay on the main streets. The Godzilla head is on the Toho building." },
-        { id: "d6-omoide", title: "Omoide Yokochō alley walk", jp: "思い出横丁", kind: "food", dur: "1 hr", tags: ["adults", "food", "nightlife"], status: "optional", note: "Tiny yakitori counters — seats 4 at most. Split up or just walk it." },
-        { id: "d6-arcade2", title: "Shinjuku arcades", kind: "experience", dur: "1 hr", tags: ["teens", "anime"], status: "optional" }
-      ]
-    },
-    food: ["tokyo-yakitori", "tokyo-curry"],
-    notes: ["teamLab reservations are the single most time-sensitive booking on the whole trip."]
-  },
-
-  /* ---------------------------------------------------- 7 */
-  {
-    n: 6, city: "tokyo", title: "Sumo & last Tokyo day", jp: "両国・相撲",
-    theme: "Sleep in, then something nobody expected",
-    intent: "Close Tokyo with the least touristy-feeling thing on the list.",
-    blocks: {
-      morning: [
-        { id: "d7-sleepin", title: "Sleep in", kind: "rest", dur: "—", tags: ["everyone", "relaxed"], status: "planned", note: "Seven days in. Take it." },
-        { id: "d7-shopping", title: "Last Tokyo shopping run", kind: "shopping", dur: "2 hrs", tags: ["everyone", "shopping"], status: "planned", note: "Anything anyone has been thinking about all week." }
-      ],
-      afternoon: [
         { id: "d7-ryogoku", title: "Ryōgoku — the sumo district", jp: "両国", kind: "sight", dur: "1 hr", tags: ["everyone", "traditional"], status: "planned" },
-        { id: "d7-sumo", title: "Sumo tournament or stable show", jp: "大相撲", kind: "experience", dur: "3 hrs", tags: ["everyone", "traditional", "energy"], status: "reserve", note: "May tournament runs in Tokyo — if the dates land right, buy real tournament tickets. Otherwise book a demonstration show with chanko lunch.", votable: true }
+        { id: "d7-sumo", title: "Sumo tournament or stable show", jp: "大相撲", kind: "experience", dur: "3 hrs", tags: ["everyone", "traditional", "energy"], status: "reserve", note: "May tournament runs in Tokyo — if the dates land right, buy real tournament tickets. Otherwise book a demonstration show with chanko lunch.", votable: true },
+        { id: "d6-tokyotower", title: "Tokyo Tower", jp: "東京タワー", kind: "sight", dur: "1 hr", tags: ["everyone", "views"], status: "optional", votable: true, link: "https://www.tokyotower.co.jp/en/" }
       ],
       evening: [
         { id: "d7-chanko", title: "Chanko-nabe dinner", jp: "ちゃんこ鍋", kind: "food", dur: "1.5 hrs", tags: ["everyone", "food", "traditional"], status: "reserve", note: "The wrestlers' stew, in the wrestlers' neighborhood. Reserve for 9." },
+        { id: "d6-kabukicho", title: "Shinjuku & Kabukichō", jp: "歌舞伎町", kind: "sight", dur: "1.5 hrs", tags: ["everyone", "nightlife", "energy"], status: "optional", note: "One last neon night. The Godzilla head is on the Toho building." },
         { id: "d7-pack", title: "Pack & forward luggage", kind: "transit", dur: "1 hr", tags: ["everyone"], status: "planned", note: "Send the big bags to Kyoto tonight. Tomorrow is a day-bag day." }
       ]
     },
-    food: ["chanko", "konbini-dessert"],
-    notes: ["If the May tournament (Natsu Basho) overlaps the final dates, this becomes a headline event — check as soon as dates lock.", "Luggage forwarding tonight makes the shinkansen tomorrow genuinely pleasant."]
+    food: ["chanko", "tokyo-yakitori", "konbini-dessert"],
+    notes: ["teamLab reservations are the single most time-sensitive booking on the whole trip.", "If the May tournament (Natsu Basho) overlaps our dates, sumo becomes a headline event — check early.", "Forward luggage to Kyoto tonight so tomorrow's shinkansen is a day-bag day."]
   },
 
-  /* ---------------------------------------------------- 8 */
+  /* ---------------------------------------------------- 7 */
   {
     n: 7, city: "kyoto", title: "Into Kyoto — market & Gion", jp: "京都へ",
     theme: "Arrive hungry",

@@ -24,7 +24,6 @@ function PageHome() {
       .slice(0, 6);
   }, [acts, S.plan.votes]);
 
-  const bigDays = DAYS.filter(function (d) { return d.highlight; });
   const myPct = profileCompletion(S.plan.profiles[S.me]);
   const bdays = birthdaysDuringTrip(S.anchor, TRIP.dayCount);
 
@@ -122,59 +121,6 @@ function PageHome() {
           })}
         </div>
       ) : null}
-
-      <div className="rule" />
-
-      {/* ---------- the shape of the trip ---------- */}
-      <SectionHead eyebrow="The shape of it" title="Four stops, fourteen days" right={<a className="btn sm" href="#/route">See the route</a>} />
-      <div className="routerail">
-        {CITY_ORDER.map(function (cid) {
-          const c = CITIES[cid];
-          const seg = SEGMENTS.filter(function (s) { return s.to === c.name; })[0];
-          return (
-            <Fragment key={cid}>
-              {seg ? (
-                <div className="rr-seg" style={{ "--c": cityVar(cid) }}>
-                  <div className="rr-spine" />
-                  <div className="rr-segbox">
-                    <b>{seg.label}</b>
-                    <p>{seg.detail}</p>
-                  </div>
-                </div>
-              ) : null}
-              <div className="rr-city" style={{ "--c": cityVar(cid) }}>
-                <div className="rr-spine"><span className="rr-node" /></div>
-                <div className="rr-body">
-                  <div className="rr-name">{c.name}<span className="jp">{c.jp}</span></div>
-                  <div className="rr-meta">
-                    Day {c.days[0]}{c.days.length > 1 ? "–" + c.days[c.days.length - 1] : ""} ·{" "}
-                    {fmtDay(dayDate(S.anchor, c.days[0])).mo} {fmtDay(dayDate(S.anchor, c.days[0])).d}
-                  </div>
-                  <p className="rr-blurb">{c.blurb}</p>
-                </div>
-              </div>
-            </Fragment>
-          );
-        })}
-      </div>
-
-      <div className="rule" />
-
-      {/* ---------- headline days ---------- */}
-      <SectionHead eyebrow="If you only remember five days" title="The big ones" right={<a className="btn sm" href="#/itinerary">Full itinerary</a>} />
-      <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))" }}>
-        {bigDays.map(function (d) {
-          const dt = fmtDay(dayDate(S.anchor, d.n));
-          return (
-            <a key={d.n} className="card" href={"#/itinerary/" + d.n} style={{ "--c": cityVar(d.city), borderTop: "2px solid " + cityVar(d.city) }}>
-              <Texture kind={CITIES[d.city].pattern} />
-              <div className="eyebrow" style={{ color: cityVar(d.city) }}>Day {d.n} · {dt.mo} {dt.d}</div>
-              <h3 className="display" style={{ fontSize: 20, margin: "8px 0 6px", position: "relative" }}>{d.title}</h3>
-              <p style={{ color: "var(--ink-2)", fontSize: 13.5, position: "relative" }}>{d.theme}</p>
-            </a>
-          );
-        })}
-      </div>
 
       <div className="rule" />
 

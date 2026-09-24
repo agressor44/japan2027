@@ -47,8 +47,6 @@ function App() {
   let body;
   switch (route.base) {
     case "/itinerary": body = <PageItinerary param={route.param} />; break;
-    case "/calendar":  body = <PageCalendar />; break;
-    case "/route":     body = <PageRoute />; break;
     case "/food":      body = <PageFood param={route.param} />; break;
     case "/options":   body = <PageOptions />; break;
     case "/booking":   body = <PageBooking />; break;

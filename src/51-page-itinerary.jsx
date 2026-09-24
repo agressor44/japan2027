@@ -11,6 +11,15 @@ function PageItinerary({ param }) {
         title="Fourteen days, May 29 – June 11"
         lede="Two major experiences a day, room to wander in between. The dates are locked; what happens inside each day is still up for grabs — nothing's booked until the checklist says it is."
       />
+
+      <RouteMap />
+      <details className="routedetails">
+        <summary>Trains between cities & neighbourhood clusters →</summary>
+        <div style={{ marginTop: 14 }}>
+          <RouteDetails />
+        </div>
+      </details>
+
       <DayStrip current={null} />
       <div className="rule" />
       {CITY_ORDER.map(function (cid) {

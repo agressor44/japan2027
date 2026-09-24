@@ -225,8 +225,6 @@ function useStore() { return useContext(StoreCtx); }
 const ROUTES = [
   { id: "home",     path: "/",             label: "Overview",     jp: "全" },
   { id: "itinerary",path: "/itinerary",    label: "Itinerary",    jp: "程" },
-  { id: "calendar", path: "/calendar",     label: "Calendar",     jp: "暦" },
-  { id: "route",    path: "/route",        label: "Route",        jp: "路" },
   { id: "food",     path: "/food",         label: "Food",         jp: "食" },
   { id: "options",  path: "/options",      label: "Vote",         jp: "票" },
   { id: "booking",  path: "/booking",      label: "Bookings",     jp: "予" },

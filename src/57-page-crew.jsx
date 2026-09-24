@@ -74,6 +74,7 @@ function PageCrew() {
                           {t.occupation ? " · " + t.occupation : ""}
                         </div>
                         {t.tripRole ? <div className="pcard-r">{t.tripRole}</div> : null}
+                        {t.loves ? <div className="pcard-loves"><span aria-hidden="true">♥</span> {t.loves}</div> : null}
                         <div className="pcard-p">
                           <Progress segments={[{ pct: pct, color: t.color, label: "Profile" }]} />
                           <span className="num">{pct}%</span>

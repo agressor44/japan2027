@@ -126,43 +126,5 @@ function DayCard({ day }) {
   );
 }
 
-function PageCalendar() {
-  const S = useStore();
-
-  // Trip-wide summary of decision status.
-  const summary = useMemo(function () {
-    const c = { open: 0, contested: 0, decided: 0, fixed: 0 };
-    DAYS.forEach(function (d) {
-      const items = votablesForDay(d.n);
-      if (!items.length) { c.fixed++; return; }
-      const ranked = items.map(function (x) { return tallyVotes(S, x.id); });
-      const totalCast = ranked.reduce(function (s, r) { return s + r.cast; }, 0);
-      if (totalCast === 0) { c.open++; return; }
-      const sorted = ranked.map(function (r) { return r.score; }).sort(function (a, b) { return b - a; });
-      const lead = sorted[0] || 0, second = sorted[1] || 0;
-      if (lead - second >= 3) c.decided++; else c.contested++;
-    });
-    return c;
-  }, [S.plan.votes]);
-
-  return (
-    <div className="page">
-      <PageHead
-        eyebrow="Calendar" jp="暦"
-        title="What's winning each day"
-        lede="The dates are locked. What's still open is what we actually do — each day shows the group's top picks so far. Tap a day for its full plan, or head to Vote to weigh in."
-      />
-
-      <div className="calsum">
-        <a className="calsum-cell st-decided" href="#/options"><b className="num">{summary.decided}</b><span>Front-runner</span></a>
-        <a className="calsum-cell st-contested" href="#/options"><b className="num">{summary.contested}</b><span>Toss-up</span></a>
-        <a className="calsum-cell st-open" href="#/options"><b className="num">{summary.open}</b><span>Needs votes</span></a>
-        <div className="calsum-cell st-fixed"><b className="num">{summary.fixed}</b><span>Set</span></div>
-      </div>
-
-      <div className="calgrid">
-        {DAYS.map(function (d) { return <DayCard key={d.n} day={d} />; })}
-      </div>
-    </div>
-  );
-}
+/* PageCalendar was removed — the calendar merged into the Vote page.
+   The helpers and DayCard above are now used there. */

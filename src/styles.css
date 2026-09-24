@@ -398,6 +398,23 @@ a.calsum-cell:hover { transform: translateY(-1px); }
 .calsum-cell.st-open     { border-top-color: var(--vermilion); }
 .calsum-cell.st-fixed    { border-top-color: var(--line); opacity: .8; }
 
+/* collapsible day dashboard on the vote page */
+.daydash { margin-bottom: 20px; }
+.daydash > summary {
+  cursor: pointer; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--indigo); padding: 6px 0; list-style: none; display: inline-block;
+}
+.daydash > summary::-webkit-details-marker { display: none; }
+.daydash > summary:hover { text-decoration: underline; }
+
+.routedetails { margin: 16px 0 4px; }
+.routedetails > summary {
+  cursor: pointer; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--indigo); padding: 6px 0; list-style: none; display: inline-block;
+}
+.routedetails > summary::-webkit-details-marker { display: none; }
+.routedetails > summary:hover { text-decoration: underline; }
+
 /* day cards */
 .calgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
 .cday {
@@ -666,6 +683,8 @@ a.calsum-cell:hover { transform: translateY(-1px); }
 .grad { font-size: 13px; }
 .pcard-m { font-family: var(--mono); font-size: 10px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); margin-top: 3px; }
 .pcard-r { font-size: 12.5px; color: var(--ink-2); margin-top: 5px; }
+.pcard-loves { font-size: 12.5px; color: var(--ink-2); margin-top: 4px; }
+.pcard-loves span { color: var(--vermilion); font-size: 11px; }
 .pcard-p { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
 .pcard-p .progress { flex: 1; height: 4px; }
 .pcard-p span { font-family: var(--mono); font-size: 10px; color: var(--ink-3); }

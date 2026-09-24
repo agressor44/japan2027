@@ -16,9 +16,9 @@ const TRAVELERS = [
   {
     id: "adam", name: "Adam Kraus", short: "Adam", family: "kraus",
     role: "adult", birthday: "06-04", color: "#2C4A7C",
-    occupation: "Web designer",
+    occupation: "Cloud engineer",
     tripRole: "Building and running this site",
-    tagline: "The web designer"
+    tagline: "The cloud engineer"
   },
   {
     id: "cristina", name: "Cristina Terronez", short: "Cristina", family: "terronez",
@@ -26,6 +26,7 @@ const TRAVELERS = [
     occupation: "Nurse — newborns",
     tripRole: "Primary trip planner",
     tagline: "The primary planner",
+    loves: "Disney super-fan — into Disney-bounding",
     rel: { spouse: "jared", children: ["ale", "matteo"] }
   },
   {
@@ -37,42 +38,45 @@ const TRAVELERS = [
   {
     id: "joe", name: "Joseph Rodgers", short: "Joe", nick: "Joe", family: "rodgers",
     role: "adult", birthday: null, color: "#7A5C1E",
-    occupation: null,
+    occupation: "Nuclear engineer",
     rel: { spouse: "rebekah", children: ["lucy", "isabelle"] },
-    needs: ["birthday", "occupation"]
+    needs: ["birthday"]
   },
   {
     id: "rebekah", name: "Rebekah Rodgers", short: "Rebekah", family: "rodgers",
     role: "adult", birthday: null, color: "#9C5A93",
-    occupation: null,
+    occupation: "Stay-at-home mom",
     rel: { spouse: "joe", children: ["lucy", "isabelle"] },
-    needs: ["birthday", "occupation"]
+    needs: ["birthday"]
   },
   {
     id: "lucy", name: "Lucille Rodgers", short: "Lucy", nick: "Lucy", family: "rodgers",
     role: "graduate", age: 18, birthday: null, color: "#C43D28",
     milestone: "Just graduated high school",
     tagline: "The graduate",
+    loves: "BTS, anime, and all the nerdy Japan stuff",
     rel: { parents: ["joe", "rebekah"], sibling: "isabelle" },
     needs: ["birthday"]
   },
   {
     id: "ale", name: "Alesandro Terronez", short: "Ale", nick: "Ale", family: "terronez",
     role: "kid", age: 12, birthday: null, color: "#C25A2E",
+    loves: "Baseball and sports",
     rel: { parents: ["cristina", "jared"], sibling: "matteo" },
     needs: ["birthday"]
   },
   {
     id: "matteo", name: "Matteo Terronez", short: "Matteo", family: "terronez",
     role: "kid", age: 10, birthday: null, color: "#6247A8",
+    loves: "Baseball and sports",
     rel: { parents: ["cristina", "jared"], sibling: "ale" },
     needs: ["birthday"]
   },
   {
     id: "isabelle", name: "Isabelle Rodgers", short: "Isabelle", family: "rodgers",
-    role: "kid", age: 8, ageApprox: "8–9, unconfirmed", birthday: null, color: "#B5762B",
+    role: "kid", age: 10, birthday: null, color: "#B5762B",
     rel: { parents: ["joe", "rebekah"], sibling: "lucy" },
-    needs: ["age", "birthday"]
+    needs: ["birthday"]
   }
 ];
 

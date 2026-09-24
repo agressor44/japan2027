@@ -24,13 +24,43 @@ function PageOptions() {
     return everyActivity().filter(function (a) { return a.votable; });
   }, []);
 
+  // Trip-wide decision summary (from the calendar dashboard).
+  const summary = useMemo(function () {
+    const c = { open: 0, contested: 0, decided: 0, fixed: 0 };
+    DAYS.forEach(function (d) {
+      const items = votablesForDay(d.n);
+      if (!items.length) { c.fixed++; return; }
+      const ranked = items.map(function (x) { return tallyVotes(S, x.id); });
+      const totalCast = ranked.reduce(function (s, r) { return s + r.cast; }, 0);
+      if (totalCast === 0) { c.open++; return; }
+      const sorted = ranked.map(function (r) { return r.score; }).sort(function (a, b) { return b - a; });
+      const lead = sorted[0] || 0, second = sorted[1] || 0;
+      if (lead - second >= 3) c.decided++; else c.contested++;
+    });
+    return c;
+  }, [S.plan.votes]);
+
   return (
     <div className="page">
       <PageHead
         eyebrow="Vote" jp="投票"
-        title="Nothing gets deleted, it gets ranked"
-        lede="Every optional activity stays on this list even when something else wins the slot. Say In, Maybe or Pass — the tallies are shared with the whole group."
+        title="What the group wants"
+        lede="Every optional activity stays on the list even when something else wins its slot — nothing's deleted, it's ranked. Say In, Maybe or Pass, and the tallies are shared with everyone."
       />
+
+      {/* --- decision dashboard: where each day stands --- */}
+      <div className="calsum">
+        <div className="calsum-cell st-decided"><b className="num">{summary.decided}</b><span>Front-runner</span></div>
+        <div className="calsum-cell st-contested"><b className="num">{summary.contested}</b><span>Toss-up</span></div>
+        <div className="calsum-cell st-open"><b className="num">{summary.open}</b><span>Needs votes</span></div>
+        <div className="calsum-cell st-fixed"><b className="num">{summary.fixed}</b><span>Set</span></div>
+      </div>
+      <details className="daydash">
+        <summary>See where each day stands →</summary>
+        <div className="calgrid" style={{ marginTop: 14 }}>
+          {DAYS.map(function (d) { return <DayCard key={d.n} day={d} />; })}
+        </div>
+      </details>
 
       <div className="notice" style={{ marginBottom: 18 }}>
         Voting as <strong style={{ fontWeight: 500 }}>{(travelerById(S.me) || {}).name}</strong>. Fill in <a href="#/profile" style={{ color: "var(--indigo)", textDecoration: "underline" }}>your preferences</a> and these cards start showing who else each one suits.

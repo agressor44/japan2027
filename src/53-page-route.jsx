@@ -29,17 +29,10 @@ const CLUSTERS = [
   { city: "osaka", name: "Bay · Shinsekai", jp: "湾岸・新世界", items: ["Universal Studios Japan", "Kaiyūkan aquarium", "Tsūtenkaku", "Kushikatsu"] }
 ];
 
-function PageRoute() {
-  const S = useStore();
+/* The route map — reused at the top of the Itinerary page. */
+function RouteMap() {
   return (
-    <div className="page">
-      <PageHead
-        eyebrow="Route" jp="経路"
-        title="One line down the Tōkaidō"
-        lede="Three bases, one day trip, and about three and a half hours of actual train time across the whole fortnight."
-      />
-
-      <div className="mapwrap">
+    <div className="mapwrap">
         <Texture kind="seigaiha" />
         <svg className="mapsvg" viewBox="0 0 900 250" role="img" aria-label="Route from Tokyo to Kyoto to Nara to Osaka">
           <defs>
@@ -95,7 +88,13 @@ function PageRoute() {
           </text>
         </svg>
       </div>
+  );
+}
 
+/* Train legs + neighbourhood clusters — shown under the map on Itinerary. */
+function RouteDetails() {
+  return (
+    <>
       <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(230px,1fr))", marginTop: 16 }}>
         {SEGMENTS.map(function (s) {
           return (
@@ -139,6 +138,6 @@ function PageRoute() {
           </section>
         );
       })}
-    </div>
+    </>
   );
 }

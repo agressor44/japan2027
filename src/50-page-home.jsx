@@ -125,7 +125,7 @@ function PageHome() {
       <div className="rule" />
 
       {/* ---------- votes wanted ---------- */}
-      <SectionHead eyebrow="Group decisions" title="Waiting on votes" right={<a className="btn sm" href="#/options">All options</a>} />
+      <SectionHead eyebrow="Group decisions" title="Waiting on votes" right={<a className="btn sm" href="#/options">Vote now</a>} />
       {myPct < 100 ? (
         <div className="notice" style={{ marginBottom: 14 }}>
           Your preference survey is {myPct}% filled in. <a href="#/profile" style={{ color: "var(--indigo)", textDecoration: "underline" }}>Finish it</a> — it's what teaches the site which days are a good fit for you.
@@ -134,12 +134,12 @@ function PageHome() {
       <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(290px, 1fr))" }}>
         {needsVotes.map(function (x) {
           return (
-            <div key={x.a.id} className="card" style={{ "--c": cityVar(x.a.city) }}>
+            <a key={x.a.id} className="card" href="#/options" style={{ "--c": cityVar(x.a.city) }}>
               <div className="eyebrow" style={{ color: cityVar(x.a.city) }}>Day {x.a.day} · {CITIES[x.a.city].name}</div>
               <h3 style={{ fontSize: 16.5, margin: "7px 0 0", fontWeight: 500 }}>{x.a.title}</h3>
               {x.a.note ? <p style={{ color: "var(--ink-2)", fontSize: 13, marginTop: 7 }}>{x.a.note}</p> : null}
-              <VoteBar itemId={x.a.id} />
-            </div>
+              <span className="eyebrow" style={{ marginTop: 8, color: "var(--indigo)" }}>{x.n ? x.n + " votes so far" : "No votes yet"} — weigh in →</span>
+            </a>
           );
         })}
       </div>

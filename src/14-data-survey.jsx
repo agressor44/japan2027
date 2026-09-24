@@ -74,7 +74,7 @@ const SURVEY = [
           { id: "seafoodlove", label: "Seafood" }, { id: "vegetarian", label: "Vegetables & tofu" }
         ]
       },
-      { id: "favoriteFoodsOther", label: "Anything else you love", type: "text", placeholder: "Okonomiyaki, taiyaki, anything with cheese…" },
+      { id: "favoriteFoodsOther", label: "Anything else you love", type: "text", optional: true, placeholder: "Okonomiyaki, taiyaki, anything with cheese…" },
       {
         id: "foodAvoid", label: "Won't eat", type: "chips",
         options: [
@@ -85,7 +85,7 @@ const SURVEY = [
           { id: "dairy", label: "Dairy" }, { id: "adventurous", label: "Anything unidentifiable" }
         ]
       },
-      { id: "dietary", label: "Allergies or dietary needs", type: "text", help: "This one matters — group reservations get made from it.", placeholder: "Nut allergy, vegetarian, gluten…" }
+      { id: "dietary", label: "Allergies or dietary needs", type: "text", optional: true, help: "This one matters — group reservations get made from it. Leave blank if none.", placeholder: "Nut allergy, vegetarian, gluten…" }
     ]
   },
   {
@@ -115,7 +115,7 @@ const SURVEY = [
           { id: "sanrio", label: "Sanrio / cute characters" }, { id: "none", label: "None of it" }
         ]
       },
-      { id: "franchises", label: "Specific series or games you'd travel for", type: "text", placeholder: "One Piece, Zelda, Demon Slayer…" },
+      { id: "franchises", label: "Specific series or games you'd travel for", type: "text", optional: true, placeholder: "One Piece, Zelda, Demon Slayer…" },
       {
         id: "shopping", label: "Shopping interests", type: "chips",
         options: [
@@ -154,8 +154,8 @@ const SURVEY = [
     blurb: "The part that actually changes the itinerary.",
     fields: [
       { id: "mustDo", label: "Your #1 — the thing that would make the trip", type: "textarea", placeholder: "If we do nothing else, I want to…" },
-      { id: "niceToHave", label: "Nice to have", type: "textarea", placeholder: "Things you'd enjoy if they fit" },
-      { id: "hardNo", label: "Hard no", type: "textarea", placeholder: "Things you'd rather skip entirely" },
+      { id: "niceToHave", label: "Nice to have", type: "textarea", optional: true, placeholder: "Things you'd enjoy if they fit" },
+      { id: "hardNo", label: "Hard no", type: "textarea", optional: true, placeholder: "Things you'd rather skip entirely" },
       {
         id: "avoids", label: "Things that make a day hard for you", type: "chips",
         options: [
@@ -166,7 +166,7 @@ const SURVEY = [
           { id: "water", label: "Boats & water" }, { id: "latenights", label: "Late nights" }
         ]
       },
-      { id: "notes", label: "Anything else the planners should know", type: "textarea", placeholder: "Motion sickness, knee that complains, needs a nap after lunch…" }
+      { id: "notes", label: "Anything else the planners should know", type: "textarea", optional: true, placeholder: "Motion sickness, knee that complains, needs a nap after lunch…" }
     ]
   }
 ];
@@ -184,11 +184,17 @@ function fieldAnswered(f, v) {
   return true;
 }
 
+/* Only required fields count toward completion — optional free-text
+   fields (allergies, "nice to have", extra notes, etc.) never drag the
+   percentage down if someone has nothing to add. */
+const REQUIRED_FIELDS = SURVEY_FIELDS.filter(function (f) { return !f.optional; });
+
 function profileCompletion(profile) {
   if (!profile) return 0;
+  if (!REQUIRED_FIELDS.length) return 100;
   let done = 0;
-  SURVEY_FIELDS.forEach(function (f) { if (fieldAnswered(f, profile[f.id])) done++; });
-  return Math.round(100 * done / SURVEY_FIELDS.length);
+  REQUIRED_FIELDS.forEach(function (f) { if (fieldAnswered(f, profile[f.id])) done++; });
+  return Math.round(100 * done / REQUIRED_FIELDS.length);
 }
 
 /* Interest options that map onto itinerary tags — the seed of the

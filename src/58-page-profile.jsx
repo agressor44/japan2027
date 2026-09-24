@@ -57,10 +57,11 @@ function PageProfile() {
 
       <div className="filters" style={{ marginTop: 22 }}>
         {SURVEY.map(function (s, i) {
-          const done = s.fields.filter(function (f) { return fieldAnswered(f, profile[f.id]); }).length;
+          const req = s.fields.filter(function (f) { return !f.optional; });
+          const done = req.filter(function (f) { return fieldAnswered(f, profile[f.id]); }).length;
           return (
             <button key={s.id} className={"fb " + (section === s.id ? "on" : "")} onClick={function () { setSection(s.id); }}>
-              {i + 1}. {s.title} <span style={{ opacity: .65 }}>{done}/{s.fields.length}</span>
+              {i + 1}. {s.title} <span style={{ opacity: .65 }}>{done}/{req.length}</span>
             </button>
           );
         })}
@@ -120,7 +121,10 @@ function PageProfile() {
 function Field({ f, value, onChange }) {
   return (
     <div className="qfield">
-      <label className="qlabel" htmlFor={"q-" + f.id}>{f.label}</label>
+      <label className="qlabel" htmlFor={"q-" + f.id}>
+        {f.label}
+        {f.optional ? <span className="qopt">optional</span> : null}
+      </label>
       {f.help ? <p className="qhelp">{f.help}</p> : null}
 
       {f.type === "chips" ? (

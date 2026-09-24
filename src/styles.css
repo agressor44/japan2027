@@ -706,6 +706,7 @@ a.calsum-cell:hover { transform: translateY(-1px); }
 .qfield { padding: 22px 0; border-bottom: 1px solid var(--line-soft); }
 .qfield:last-of-type { border-bottom: none; }
 .qlabel { display: block; font-size: 16px; font-weight: 500; }
+.qopt { margin-left: 8px; font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); font-weight: 400; vertical-align: middle; }
 .qhelp { font-size: 13px; color: var(--ink-3); margin-top: 4px; max-width: 60ch; }
 .qfield textarea.field { resize: vertical; line-height: 1.55; margin-top: 11px; }
 .qfield input.field { margin-top: 11px; max-width: 520px; }

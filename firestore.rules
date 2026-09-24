@@ -1,30 +1,25 @@
 rules_version = '2';
 
-// Japan 2027 — the whole plan is one document, readable and writable
-// only by the nine people on the trip.
+// Japan 2027 - the whole plan is one document, readable and writable
+// only by the people on the trip.
 //
 // To add someone: put their Google account email in the list below and
-// redeploy the rules (Firebase console → Firestore → Rules → Publish).
-// Emails are compared lowercase.
+// redeploy the rules. Emails are compared lowercase.
 
 service cloud.firestore {
   match /databases/{database}/documents {
 
     function crew() {
       return [
-        'adam.kraus44@gmail.com'
-        // , 'cristina@example.com'
-        // , 'jared@example.com'
-        // , 'joe@example.com'
-        // , 'rebekah@example.com'
-        // , 'lucy@example.com'
+        'adam.kraus44@gmail.com',
+        'cidi6@hotmail.com'
       ];
     }
 
     function isCrew() {
       return request.auth != null
         && request.auth.token.email_verified == true
-        && lower(request.auth.token.email) in crew();
+        && request.auth.token.email.lower() in crew();
     }
 
     match /plan/{doc} {

@@ -24,8 +24,6 @@ const TRAVELERS = [
     id: "cristina", name: "Cristina Terronez", short: "Cristina", family: "terronez",
     role: "adult", birthday: "06-24", color: "#B03A5B",
     occupation: "Nurse — newborns",
-    tripRole: "Primary trip planner",
-    tagline: "The primary planner",
     loves: "Disney super-fan — into Disney-bounding",
     rel: { spouse: "jared", children: ["ale", "matteo"] }
   },

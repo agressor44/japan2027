@@ -69,45 +69,70 @@ const DAYS = [
     notes: ["The big pop-culture day of the Tokyo half.", "Shibuya Sky is the one thing here that must be booked ahead."]
   },
 
-  /* ---------------------------------------------------- 3 */
+  /* ---------------------------------------------------- 4 · DisneySea */
   {
-    n: 4, city: "tokyo", title: "DisneySea — or Tokyo your way", jp: "分かれ道",
-    theme: "The split-group day",
-    intent: "Not everyone wants a theme park. Nobody should have to — so the group splits for one day.",
+    n: 4, city: "tokyo", title: "Tokyo DisneySea", jp: "ディズニーシー",
+    theme: "The park that exists nowhere else",
+    intent: "The whole group's first Disney day. DisneySea is the uniquely-Japanese one — everyone together.",
     split: true,
     tracks: [
       {
-        id: "d3-disney", label: "The parks", jp: "ディズニー", tags: ["everyone", "energy"],
-        blurb: "A full day at a Disney park. DisneySea is the one that exists nowhere else; Disneyland if the group would rather.",
+        id: "d3-disney", label: "DisneySea", jp: "ディズニーシー", tags: ["everyone", "energy"],
+        blurb: "A full day at DisneySea — rope drop to fireworks. The park you can't get anywhere else in the world.",
         items: [
-          { id: "d3-sea", title: "Tokyo DisneySea", kind: "experience", dur: "Full day", tags: ["energy"], status: "reserve", note: "The uniquely-Japanese pick. Tickets are date-specific and go on sale ~2 months out.", votable: true },
-          { id: "d4-disneyland", title: "Tokyo Disneyland", kind: "experience", dur: "Full day", tags: ["energy"], status: "optional", note: "The alternative park, if the group prefers the classic.", votable: true }
+          { id: "d3-sea", title: "Tokyo DisneySea", kind: "experience", dur: "Full day", tags: ["energy"], status: "reserve", note: "Date-specific tickets go on sale ~2 months out. Book all nine together.", votable: true, link: "https://www.tokyodisneyresort.jp/en/tds/" }
         ]
       },
       {
-        id: "d3-tokyo", label: "Tokyo your way", jp: "東京散策", tags: ["everyone", "food"],
-        blurb: "Market breakfast, character shops, karaoke, Odaiba — a relaxed day for anyone skipping the parks.",
+        id: "d3-tokyo", label: "Skip the park", jp: "東京散策", tags: ["everyone", "food"],
+        blurb: "For anyone not doing DisneySea: market breakfast, character shops and a relaxed Tokyo day.",
         items: [
           { id: "d3-tsukiji", title: "Tsukiji Outer Market", jp: "築地場外市場", kind: "food", dur: "2 hrs", tags: ["food", "everyone"], status: "planned", note: "Graze, don't sit down. Go before 10am." },
-          { id: "d3-ginza", title: "Ginza", jp: "銀座", kind: "shopping", dur: "2 hrs", tags: ["adults", "shopping"], status: "planned" },
           { id: "d3-pokedx", title: "Pokémon Center Tokyo DX", kind: "shopping", dur: "1 hr", tags: ["everyone", "anime"], status: "planned", note: "The flagship. Attached Pokémon Café needs a lottery reservation.", votable: true },
-          { id: "d3-charst", title: "Tokyo Station Character Street", jp: "東京駅一番街", kind: "shopping", dur: "1 hr", tags: ["everyone", "anime", "shopping"], status: "planned" },
-          { id: "d4-odaiba", title: "Odaiba & DiverCity", jp: "お台場", kind: "sight", dur: "3 hrs", tags: ["everyone", "anime"], status: "optional", note: "The life-size Unicorn Gundam transforms on a schedule.", votable: true },
-          { id: "d4-joypolis", title: "Tokyo Joypolis", kind: "experience", dur: "3 hrs", tags: ["everyone", "energy", "anime"], status: "optional", votable: true },
-          { id: "d4-ghibli", title: "Ghibli Museum", jp: "三鷹の森ジブリ美術館", kind: "experience", dur: "3 hrs", tags: ["everyone", "traditional"], status: "reserve", note: "Lottery months ahead. Nine tickets together is genuinely unlikely — decide who goes.", votable: true, link: "https://www.ghibli-museum.jp/en/" },
-          { id: "d4-karaoke", title: "Private-room karaoke", jp: "カラオケ", kind: "experience", dur: "2 hrs", tags: ["everyone", "energy", "nightlife"], status: "planned", note: "One room fits all nine. The cheapest great memory of the trip.", votable: true },
-          { id: "d3-shinjuku", title: "Shinjuku in the evening", jp: "新宿", kind: "sight", dur: "2 hrs", tags: ["everyone", "nightlife"], status: "planned" }
+          { id: "d3-charst", title: "Tokyo Station Character Street", jp: "東京駅一番街", kind: "shopping", dur: "1 hr", tags: ["everyone", "anime", "shopping"], status: "planned" }
         ]
       }
     ],
     blocks: {},
     food: ["tsukiji-tamago", "tsukiji-tuna", "tsukiji-wagyu", "tsukiji-daifuku"],
-    notes: ["If the group only does one Disney park, make it DisneySea — it's the more uniquely Japanese one.", "Whoever skips the parks should still get a great day, not a consolation prize."]
+    notes: ["DisneySea tickets are date-specific and sell out — book as soon as the dates allow.", "This is the whole-group park day; Disneyland is tomorrow for those who want a second."]
   },
 
-  /* ---------------------------------------------------- 4 */
+  /* ---------------------------------------------------- 5 · Disneyland, split */
   {
-    n: 5, city: "tokyo", title: "Palace → Akihabara → Skytree", jp: "皇居・秋葉原・スカイツリー",
+    n: 5, city: "tokyo", title: "Disneyland — or Tokyo your way", jp: "分かれ道",
+    theme: "The split-group day",
+    intent: "The Disney fans do Disneyland; everyone else takes Tokyo at their own pace. Two good days, no compromise.",
+    split: true,
+    tracks: [
+      {
+        id: "d5-disneyland", label: "Tokyo Disneyland", jp: "ディズニーランド", tags: ["everyone", "energy"],
+        blurb: "A second Disney day for the fans — the classic castle park. Cristina's must-do.",
+        items: [
+          { id: "d4-disneyland", title: "Tokyo Disneyland", kind: "experience", dur: "Full day", tags: ["energy"], status: "reserve", note: "The classic park. Date-specific tickets, on sale ~2 months out.", votable: true, link: "https://www.tokyodisneyresort.jp/en/tdl/" }
+        ]
+      },
+      {
+        id: "d5-tokyo", label: "Tokyo your way", jp: "東京散策", tags: ["everyone", "energy"],
+        blurb: "For everyone skipping the second park — arcades, character shops, karaoke, Odaiba. Your day to build.",
+        items: [
+          { id: "d4-odaiba", title: "Odaiba & DiverCity", jp: "お台場", kind: "sight", dur: "3 hrs", tags: ["everyone", "anime"], status: "optional", note: "The life-size Unicorn Gundam transforms on a schedule.", votable: true },
+          { id: "d4-joypolis", title: "Tokyo Joypolis", kind: "experience", dur: "3 hrs", tags: ["everyone", "energy", "anime"], status: "optional", votable: true },
+          { id: "d4-ghibli", title: "Ghibli Museum", jp: "三鷹の森ジブリ美術館", kind: "experience", dur: "3 hrs", tags: ["everyone", "traditional"], status: "reserve", note: "Lottery months ahead — decide who goes.", votable: true, link: "https://www.ghibli-museum.jp/en/" },
+          { id: "d4-karaoke", title: "Private-room karaoke", jp: "カラオケ", kind: "experience", dur: "2 hrs", tags: ["everyone", "energy", "nightlife"], status: "planned", note: "One room fits everyone not at the park. The cheapest great memory of the trip.", votable: true },
+          { id: "d3-ginza", title: "Ginza", jp: "銀座", kind: "shopping", dur: "2 hrs", tags: ["adults", "shopping"], status: "optional" },
+          { id: "d3-shinjuku", title: "Shinjuku in the evening", jp: "新宿", kind: "sight", dur: "2 hrs", tags: ["everyone", "nightlife"], status: "planned" }
+        ]
+      }
+    ],
+    blocks: {},
+    food: ["tokyo-curry", "tokyo-tonkatsu", "konbini-chicken"],
+    notes: ["Whoever skips Disneyland should get a great Tokyo day, not a consolation prize.", "Assign people to tracks on the Crew page or here on the day."]
+  },
+
+  /* ---------------------------------------------------- 6 */
+  {
+    n: 6, city: "tokyo", title: "Palace → Akihabara → Skytree", jp: "皇居・秋葉原・スカイツリー",
     theme: "Old Tokyo, geek Tokyo, future Tokyo — in that order",
     intent: "One day that tells the whole story of the city, in sequence.",
     highlight: true,
@@ -132,7 +157,7 @@ const DAYS = [
 
   /* ---------------------------------------------------- 6 · last Tokyo day */
   {
-    n: 6, city: "tokyo", title: "teamLab, sumo & last Tokyo night", jp: "チームラボ・相撲",
+    n: 7, city: "tokyo", title: "teamLab, sumo & last Tokyo night", jp: "チームラボ・相撲",
     theme: "Digital art, then something nobody expected",
     intent: "The most photographed thing the group will do, the sumo district, and one last neon night before the shinkansen.",
     highlight: true,
@@ -157,7 +182,7 @@ const DAYS = [
 
   /* ---------------------------------------------------- 7 */
   {
-    n: 7, city: "kyoto", title: "Into Kyoto — market & Gion", jp: "京都へ",
+    n: 8, city: "kyoto", title: "Into Kyoto — market & Gion", jp: "京都へ",
     theme: "Arrive hungry",
     intent: "Shinkansen as an event, then eat your way down Nishiki and into old Kyoto at dusk.",
     arriveBy: "seg-tyo-kyo",
@@ -181,57 +206,35 @@ const DAYS = [
     notes: ["The cooking class is the best value experience in Kyoto for a mixed-age group.", "Kyoto is a bus-and-walk city. Nine people + buses = plan buffer."]
   },
 
-  /* ---------------------------------------------------- 9 */
+  /* --------------------------------------------------- 9 · Arashiyama + river */
   {
-    n: 8, city: "kyoto", title: "Hozugawa river day", jp: "保津川下り",
-    theme: "Get out of the temples",
-    intent: "An outdoor day placed deliberately between two heavy sightseeing days.",
-    highlight: true,
-    blocks: {
-      morning: [
-        { id: "d9-kameoka", title: "Train to Kameoka", kind: "transit", dur: "40 min", tags: ["everyone"], status: "planned" },
-        { id: "d9-raft", title: "Hozugawa river boat ride", jp: "保津川下り", kind: "experience", dur: "2 hrs", tags: ["everyone", "outdoor", "energy"], status: "reserve", note: "Traditional flat boat, real rapids, boatmen poling the whole way. Ends in Arashiyama. Book for 9.", votable: true, link: "https://www.hozugawakudari.jp/en" }
-      ],
-      afternoon: [
-        { id: "d9-lunch", title: "Lunch in Arashiyama", kind: "food", dur: "1 hr", tags: ["everyone", "food"], status: "planned" },
-        { id: "d9-togetsukyo", title: "Togetsukyō Bridge", jp: "渡月橋", kind: "sight", dur: "30 min", tags: ["everyone", "views", "relaxed"], status: "planned" },
-        { id: "d9-onsen", title: "Onsen or foot bath", jp: "温泉", kind: "rest", dur: "1.5 hrs", tags: ["adults", "relaxed", "traditional"], status: "optional", note: "Arashiyama has a station foot bath as an easy low-commitment version. Tattoo rules vary — check per facility.", votable: true }
-      ],
-      evening: [
-        { id: "d9-dinner", title: "Relaxed dinner back in Kyoto", kind: "food", dur: "1.5 hrs", tags: ["everyone", "food", "relaxed"], status: "planned" }
-      ]
-    },
-    food: ["arashiyama-soba", "arashiyama-tofu", "arashiyama-matcha"],
-    notes: ["The boat runs in most weather but can be cancelled for high water — keep a rainy-day alternative.", "This is the day that keeps the group from burning out on shrines."]
-  },
-
-  /* --------------------------------------------------- 10 */
-  {
-    n: 9, city: "kyoto", title: "Arashiyama, early", jp: "嵐山",
-    theme: "Be in the bamboo before the crowds",
-    intent: "A 7:00 start buys an empty bamboo grove. A 10:00 start buys a queue.",
+    n: 9, city: "kyoto", title: "Arashiyama & the river", jp: "嵐山・保津川",
+    theme: "Bamboo before the crowds, then out on the water",
+    intent: "An early bamboo grove, then the Hozugawa river boat that lands right back in Arashiyama — one full outdoor day away from the temples.",
     startEarly: "7:00–7:30 AM",
+    highlight: true,
     blocks: {
       morning: [
         { id: "d10-bamboo", title: "Bamboo Grove", jp: "竹林の小径", kind: "sight", dur: "45 min", tags: ["everyone", "traditional", "outdoor"], status: "planned", note: "Non-negotiable early start. By 9am it is a slow-moving crowd.", votable: true },
         { id: "d10-tenryuji", title: "Tenryū-ji", jp: "天龍寺", kind: "sight", dur: "1 hr", tags: ["everyone", "traditional"], status: "planned", note: "The garden is the reason, not the hall." },
-        { id: "d10-monkey", title: "Iwatayama Monkey Park", jp: "嵐山モンキーパーク", kind: "experience", dur: "1.5 hrs", tags: ["teens", "outdoor", "energy"], status: "optional", note: "A genuine hill climb. The view at the top is the payoff.", votable: true, link: "https://www.monkeypark.jp/english/" }
+        { id: "d9-raft", title: "Hozugawa river boat ride", jp: "保津川下り", kind: "experience", dur: "2 hrs", tags: ["everyone", "outdoor", "energy"], status: "reserve", note: "Take the train to Kameoka and ride the traditional flat boat back — real rapids, boatmen poling the whole way, ending in Arashiyama. Book for 9.", votable: true, link: "https://www.hozugawakudari.jp/en" }
       ],
       afternoon: [
-        { id: "d10-foodtour", title: "Kyoto food tour", kind: "food", dur: "3 hrs", tags: ["everyone", "food"], status: "reserve", note: "Guided, which solves the where-do-nine-people-eat problem for an afternoon.", votable: true },
+        { id: "d9-togetsukyo", title: "Togetsukyō Bridge", jp: "渡月橋", kind: "sight", dur: "30 min", tags: ["everyone", "views", "relaxed"], status: "planned" },
+        { id: "d10-monkey", title: "Iwatayama Monkey Park", jp: "嵐山モンキーパーク", kind: "experience", dur: "1.5 hrs", tags: ["teens", "outdoor", "energy"], status: "optional", note: "A genuine hill climb. The view at the top is the payoff.", votable: true, link: "https://www.monkeypark.jp/english/" },
         { id: "d10-sagano", title: "Sagano scenic railway", jp: "嵯峨野トロッコ列車", kind: "experience", dur: "1 hr", tags: ["everyone", "relaxed", "views"], status: "optional", note: "Open-sided train through the gorge. Reserve — it sells out.", votable: true, link: "https://www.sagano-kanko.co.jp/en/" },
-        { id: "d10-tea", title: "Tea ceremony", jp: "茶道", kind: "experience", dur: "1 hr", tags: ["adults", "traditional", "relaxed"], status: "optional", votable: true },
         { id: "d10-kimono", title: "Kimono rental", jp: "着物レンタル", kind: "experience", dur: "Half day", tags: ["everyone", "traditional"], status: "optional", note: "Best done in Kyoto or Osaka, not both. Pick one.", votable: true }
       ],
       evening: [
-        { id: "d10-free", title: "Free evening", kind: "rest", dur: "—", tags: ["everyone", "relaxed"], status: "planned", note: "Shopping, wandering, or nothing." }
+        { id: "d9-onsen", title: "Onsen or foot bath", jp: "温泉", kind: "rest", dur: "1.5 hrs", tags: ["adults", "relaxed", "traditional"], status: "optional", note: "The Arashiyama station foot bath is an easy version. Tattoo rules vary — check per facility.", votable: true },
+        { id: "d9-dinner", title: "Relaxed dinner back in Kyoto", kind: "food", dur: "1.5 hrs", tags: ["everyone", "food", "relaxed"], status: "planned" }
       ]
     },
-    food: ["arashiyama-udon", "arashiyama-taiyaki", "arashiyama-softserve"],
-    notes: ["Three optional add-ons compete for the same afternoon. Vote and pick two at most."]
+    food: ["arashiyama-soba", "arashiyama-tofu", "arashiyama-matcha", "arashiyama-udon"],
+    notes: ["The boat runs in most weather but can be cancelled for high water — keep a rainy-day alternative.", "Bamboo grove early, river boat late morning — both are in Arashiyama, so the day flows without backtracking."]
   },
 
-  /* --------------------------------------------------- 11 */
+  /* --------------------------------------------------- 10 */
   {
     n: 10, city: "kyoto", title: "Classic Kyoto", jp: "伏見稲荷・清水寺",
     theme: "The postcard day, done properly",

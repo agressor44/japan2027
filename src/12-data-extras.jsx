@@ -62,6 +62,23 @@ const FOOD = [
   { id: "umeda-yakiniku", city: "osaka", name: "Yakiniku", jp: "焼肉", cat: "nice", where: "Umeda", tags: ["everyone", "group"] },
   { id: "umeda-wagyu", city: "osaka", name: "Wagyu & shabu-shabu", jp: "和牛", cat: "nice", where: "Umeda", tags: ["adults", "group"], note: "The candidate for the one properly nice group dinner." },
 
+  /* ---- Sit-down dinners worth booking (foreigner-friendly, English reservations) ---- */
+  /* Tokyo */
+  { id: "sit-shibuya-yakiniku", city: "tokyo", name: "Shibuya yakiniku — book ahead", jp: "焼肉", cat: "nice", where: "Shibuya", tags: ["everyone", "group"], note: "Grill-your-own is the easiest great dinner for nine. Browse rated Shibuya yakiniku with English booking.", link: "https://tabelog.com/en/tokyo/A1303/A130301/rstLst/yakiniku/" },
+  { id: "sit-shibuya-izakaya", city: "tokyo", name: "Shibuya izakaya dinner", jp: "居酒屋", cat: "restaurant", where: "Shibuya", tags: ["everyone", "food"], note: "A proper Japanese pub dinner — small plates, easy for a group, many have English menus.", link: "https://savorjapan.com/contents/discover-oishii-japan/shibuya-best-dinner-20-popular-local-restaurants" },
+  { id: "sit-shinjuku-nice", city: "tokyo", name: "Shinjuku sit-down pick", jp: "新宿ディナー", cat: "nice", where: "Shinjuku", tags: ["everyone", "food"], note: "Curated Shinjuku dinners — wagyu, sushi, tempura — with reservations and English support.", link: "https://savorjapan.com/contents/discover-oishii-japan/top-15-best-restaurants-in-shinjuku" },
+  { id: "sit-tokyo-reserve", city: "tokyo", name: "Reserve a Tokyo table", jp: "予約", cat: "restaurant", where: "Anywhere in Tokyo", tags: ["everyone", "food", "group"], note: "byFood lists thousands of Tokyo restaurants you can book online in English — filter by area, cuisine and party size.", link: "https://www.byfood.com/tokyo-restaurants" },
+
+  /* Kyoto */
+  { id: "sit-gion-guide", city: "kyoto", name: "Gion dinner — the best of", jp: "祇園ディナー", cat: "nice", where: "Gion", tags: ["everyone", "food"], note: "A vetted guide to Gion restaurants — kaiseki, wagyu teppanyaki, Kyoto yakiniku — with hours, English menus and card info.", link: "https://www.byfood.com/blog/best-gion-restaurants-p-674" },
+  { id: "sit-gion-sukiyaki", city: "kyoto", name: "Sukiyaki in a machiya", jp: "すき焼き", cat: "nice", where: "Gion", tags: ["everyone", "group"], note: "Wagyu sukiyaki in a restored townhouse — shared hot pot, a great nine-person format. Browse and reserve.", link: "https://savorjapan.com/contents/discover-oishii-japan/15-unmissable-izakaya-around-gion-kyoto" },
+  { id: "sit-kyoto-reserve", city: "kyoto", name: "Reserve a Kyoto table", jp: "予約", cat: "restaurant", where: "Central Kyoto", tags: ["everyone", "food", "group"], note: "Tabelog's English site — filter Kyoto restaurants by area and cuisine, many with instant online booking.", link: "https://tabelog.com/en/kyoto/" },
+
+  /* Osaka */
+  { id: "sit-dotonbori-okonomiyaki", city: "osaka", name: "Dōtonbori okonomiyaki — sit down", jp: "お好み焼き", cat: "restaurant", where: "Dōtonbori", tags: ["everyone", "group", "food"], note: "Teppan tables you cook at yourself — fun for a group. Several take online reservations.", link: "https://tabelog.com/en/osaka/A2701/A270202/rstLst/okonomiyaki/" },
+  { id: "sit-dotonbori-kushikatsu", city: "osaka", name: "Kushikatsu, proper", jp: "串カツ", cat: "restaurant", where: "Dōtonbori / Shinsekai", tags: ["everyone", "food"], note: "Deep-fried skewers with the one no-double-dipping rule. Book a table so nine of you aren't queuing.", link: "https://tabelog.com/en/osaka/A2701/A270202/rstLst/kushiage/" },
+  { id: "sit-osaka-guide", city: "osaka", name: "Best of Dōtonbori dining", jp: "道頓堀", cat: "nice", where: "Namba / Dōtonbori", tags: ["everyone", "food"], note: "A current guide to the best sit-down spots along the strip, with how to skip the worst queues.", link: "https://japanactivity.com/dotonbori-food-guide" },
+
   /* ---- Everywhere ---- */
   { id: "konbini-onigiri", city: "all", name: "Onigiri", jp: "おにぎり", cat: "konbini", where: "7-Eleven / Lawson / FamilyMart", tags: ["everyone"], note: "Tuna mayo is the gateway. ¥150." },
   { id: "konbini-egg", city: "all", name: "Egg salad sandwich", jp: "たまごサンド", cat: "konbini", where: "Any konbini", tags: ["everyone"], note: "Improbably famous. Deservedly." },

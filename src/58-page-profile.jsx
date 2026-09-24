@@ -79,8 +79,27 @@ function PageProfile() {
       </section>
 
       <p className="eyebrow" style={{ marginTop: 18, textTransform: "none", letterSpacing: ".04em" }}>
-        Saved as you type. {S.sync === "shared" ? "Visible to the rest of the group." : "Held in this browser until the shared store is reachable."}
+        Saved as you type — change any answer whenever you like. {S.sync === "shared" ? "Updates are shared with the group instantly." : "Held in this browser until the shared store is reachable."}
       </p>
+
+      {/* ---------- account & sign out ---------- */}
+      <div className="rule" />
+      <SectionHead eyebrow="Account" title="Signed in" />
+      <div className="card">
+        <div className="row" style={{ justifyContent: "space-between", gap: 14 }}>
+          <div className="row" style={{ gap: 11 }}>
+            <Avatar t={me} />
+            <div>
+              <div style={{ fontSize: 15 }}>{S.auth.user ? S.auth.user.name : me.name}</div>
+              <div className="eyebrow" style={{ textTransform: "none", letterSpacing: ".04em" }}>
+                {S.auth.user && S.auth.user.provider === "google" ? S.auth.user.email + " · Google" : "Signed in"}
+                {" · linked to "}{me.name}
+              </div>
+            </div>
+          </div>
+          <button className="btn" onClick={function () { S.signOut(); }}>Sign out</button>
+        </div>
+      </div>
     </div>
   );
 }

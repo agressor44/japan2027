@@ -16,6 +16,11 @@ function FoodCard({ f }) {
           })}
         </div>
       ) : null}
+      {f.link ? (
+        <a className="lookup" href={f.link} target="_blank" rel="noopener noreferrer" style={{ marginTop: 4 }}>
+          Browse &amp; book <span aria-hidden="true">↗</span>
+        </a>
+      ) : null}
     </article>
   );
 }

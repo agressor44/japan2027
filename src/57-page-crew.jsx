@@ -253,25 +253,6 @@ function PageCrew() {
         <div>Nine people means reservations, reserved train seats, and a standing meeting point every single day.</div>
         <div>Everyone should have data on their phone and the hotel address written down. Phones die.</div>
       </div>
-
-      {/* ---------- account ---------- */}
-      <div className="rule" />
-      <SectionHead eyebrow="Account" title="You're signed in" />
-      <div className="card">
-        <div className="row" style={{ justifyContent: "space-between", gap: 14 }}>
-          <div className="row" style={{ gap: 11 }}>
-            {S.me ? <Avatar t={travelerById(S.me)} /> : null}
-            <div>
-              <div style={{ fontSize: 15 }}>{S.auth.user ? S.auth.user.name : ""}</div>
-              <div className="eyebrow" style={{ textTransform: "none", letterSpacing: ".04em" }}>
-                {S.auth.user && S.auth.user.provider === "google" ? S.auth.user.email + " · Google" : "Household sign-in"}
-                {" · linked to "}{travelerById(S.me) ? travelerById(S.me).name : "—"}
-              </div>
-            </div>
-          </div>
-          <button className="btn" onClick={function () { S.signOut(); }}>Sign out</button>
-        </div>
-      </div>
     </div>
   );
 }

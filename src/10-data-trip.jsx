@@ -27,18 +27,18 @@ const TRIP = {
 const CITIES = {
   tokyo: {
     id: "tokyo", name: "Tokyo", jp: "東京", romaji: "tōkyō",
-    days: [1, 2, 3, 4, 5, 6],
+    days: [1, 2, 3, 4, 5, 6, 7],
     hue: "var(--tokyo)",
     pattern: "kumiko",
-    blurb: "Six nights. Neon, shrines, arcades, and the best convenience stores on earth.",
+    blurb: "Seven nights. Neon, shrines, arcades, two Disney parks, and the best convenience stores on earth.",
     note: "Base for the first half. Everything below is a train ride apart."
   },
   kyoto: {
     id: "kyoto", name: "Kyoto", jp: "京都", romaji: "kyōto",
-    days: [7, 8, 9, 10],
+    days: [8, 9, 10],
     hue: "var(--kyoto)",
     pattern: "asanoha",
-    blurb: "Four nights. Temples at 7am, river rapids, bamboo, and a cooking class.",
+    blurb: "Three nights. Temples at 7am, river rapids, bamboo, and a cooking class.",
     note: "Start early here — Arashiyama and Fushimi Inari are transformed by an early start."
   },
   nara: {
@@ -102,7 +102,7 @@ const SEGMENTS = [
   },
   {
     id: "seg-tyo-kyo",
-    afterDay: 6, from: "Tokyo", to: "Kyoto",
+    afterDay: 7, from: "Tokyo", to: "Kyoto",
     mode: "shinkansen", jp: "東海道新幹線",
     label: "Tōkaidō Shinkansen",
     detail: "≈2h15m on the Nozomi. Treat the train as part of the trip, not transport.",

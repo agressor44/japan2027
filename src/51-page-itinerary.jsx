@@ -8,8 +8,8 @@ function PageItinerary({ param }) {
     <div className="page">
       <PageHead
         eyebrow="Itinerary" jp="旅程"
-        title="Fifteen days, still in pencil"
-        lede="Two major experiences a day, room to wander in between. Every day below can move — nothing here is booked until the checklist says it is."
+        title="Fourteen days, May 29 – June 11"
+        lede="Two major experiences a day, room to wander in between. The dates are locked; what happens inside each day is still up for grabs — nothing's booked until the checklist says it is."
       />
       <DayStrip current={null} />
       <div className="rule" />

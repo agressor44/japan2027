@@ -1,5 +1,5 @@
 /* ===========================================================
-   ITINERARY — 15 tentative days.
+   ITINERARY — 14 days (Sat May 29 travel → Fri Jun 11 home).
    Every activity has a stable id so votes, status and notes
    can attach to it without touching this file.
    =========================================================== */
@@ -7,12 +7,12 @@
 const DAYS = [
   /* ---------------------------------------------------- 1 */
   {
-    n: 1, city: "tokyo", title: "Land in Tokyo", jp: "到着",
-    theme: "Do almost nothing on purpose",
-    intent: "Jet lag is real for nine people. One light evening beats a wasted day two.",
+    n: 1, city: "tokyo", title: "Fly out & land in Tokyo", jp: "到着",
+    theme: "A travel day — do almost nothing on purpose",
+    intent: "We fly out Saturday and, with the time zones, land in Tokyo Sunday. Between the flight and jet lag, day one is gone — one light evening beats a wasted day two.",
     blocks: {
       afternoon: [
-        { id: "d1-arrive", title: "Arrival & immigration", kind: "transit", dur: "2–3 hrs", tags: ["everyone"], status: "planned", note: "Visit Japan Web filled out in advance saves a long line." },
+        { id: "d1-arrive", title: "Arrival & immigration", kind: "transit", dur: "2–3 hrs", tags: ["everyone"], status: "planned", note: "Land Sunday. Visit Japan Web filled out in advance saves a long line." },
         { id: "d1-checkin", title: "Hotel check-in", kind: "rest", dur: "1 hr", tags: ["everyone", "relaxed"], status: "reserve", note: "Nine people is likely 3–4 rooms. Book early for adjacent rooms." }
       ],
       evening: [
@@ -29,7 +29,7 @@ const DAYS = [
   /* ---------------------------------------------------- 2 */
   {
     n: 2, city: "tokyo", title: "Shibuya & Harajuku", jp: "渋谷・原宿",
-    theme: "The day the teenagers came for",
+    theme: "The pop-culture day",
     intent: "Pop-culture Tokyo at full volume, bookended by a shrine and a sunset.",
     highlight: true,
     blocks: {
@@ -51,74 +51,48 @@ const DAYS = [
       ]
     },
     food: ["harajuku-crepe", "souffle-pancake", "taiyaki", "tokyo-yakiniku"],
-    notes: ["Highest-priority teen day of the Tokyo half.", "Shibuya Sky is the one thing here that must be booked ahead."]
+    notes: ["The big pop-culture day of the Tokyo half.", "Shibuya Sky is the one thing here that must be booked ahead."]
   },
 
   /* ---------------------------------------------------- 3 */
   {
-    n: 3, city: "tokyo", title: "DisneySea — or not", jp: "分かれ道",
-    theme: "First real split-group day",
-    intent: "Not everyone wants a theme park. Nobody should have to.",
+    n: 3, city: "tokyo", title: "DisneySea — or Tokyo your way", jp: "分かれ道",
+    theme: "The split-group day",
+    intent: "Not everyone wants a theme park. Nobody should have to — so the group splits for one day.",
     split: true,
     tracks: [
       {
-        id: "d3-disney", label: "DisneySea", jp: "ディズニーシー", tags: ["teens", "energy"],
-        blurb: "Full day, rope drop to fireworks. The one Disney park that exists nowhere else.",
+        id: "d3-disney", label: "The parks", jp: "ディズニー", tags: ["everyone", "energy"],
+        blurb: "A full day at a Disney park. DisneySea is the one that exists nowhere else; Disneyland if the group would rather.",
         items: [
-          { id: "d3-sea", title: "Tokyo DisneySea", kind: "experience", dur: "Full day", tags: ["energy"], status: "reserve", note: "Tickets are date-specific and go on sale ~2 months out." }
+          { id: "d3-sea", title: "Tokyo DisneySea", kind: "experience", dur: "Full day", tags: ["energy"], status: "reserve", note: "The uniquely-Japanese pick. Tickets are date-specific and go on sale ~2 months out.", votable: true },
+          { id: "d4-disneyland", title: "Tokyo Disneyland", kind: "experience", dur: "Full day", tags: ["energy"], status: "optional", note: "The alternative park, if the group prefers the classic.", votable: true }
         ]
       },
       {
-        id: "d3-tokyo", label: "Tokyo without Disney", jp: "東京散策", tags: ["adults", "food"],
-        blurb: "Market breakfast, Ginza, character shops, and Shinjuku at night.",
+        id: "d3-tokyo", label: "Tokyo your way", jp: "東京散策", tags: ["everyone", "food"],
+        blurb: "Market breakfast, character shops, karaoke, Odaiba — a relaxed day for anyone skipping the parks.",
         items: [
           { id: "d3-tsukiji", title: "Tsukiji Outer Market", jp: "築地場外市場", kind: "food", dur: "2 hrs", tags: ["food", "everyone"], status: "planned", note: "Graze, don't sit down. Go before 10am." },
           { id: "d3-ginza", title: "Ginza", jp: "銀座", kind: "shopping", dur: "2 hrs", tags: ["adults", "shopping"], status: "planned" },
-          { id: "d3-pokedx", title: "Pokémon Center Tokyo DX", kind: "shopping", dur: "1 hr", tags: ["teens", "anime"], status: "planned", note: "The flagship. Attached Pokémon Café needs a lottery reservation.", votable: true },
-          { id: "d3-charst", title: "Tokyo Station Character Street", jp: "東京駅一番街", kind: "shopping", dur: "1 hr", tags: ["teens", "anime", "shopping"], status: "planned" },
+          { id: "d3-pokedx", title: "Pokémon Center Tokyo DX", kind: "shopping", dur: "1 hr", tags: ["everyone", "anime"], status: "planned", note: "The flagship. Attached Pokémon Café needs a lottery reservation.", votable: true },
+          { id: "d3-charst", title: "Tokyo Station Character Street", jp: "東京駅一番街", kind: "shopping", dur: "1 hr", tags: ["everyone", "anime", "shopping"], status: "planned" },
+          { id: "d4-odaiba", title: "Odaiba & DiverCity", jp: "お台場", kind: "sight", dur: "3 hrs", tags: ["everyone", "anime"], status: "optional", note: "The life-size Unicorn Gundam transforms on a schedule.", votable: true },
+          { id: "d4-joypolis", title: "Tokyo Joypolis", kind: "experience", dur: "3 hrs", tags: ["everyone", "energy", "anime"], status: "optional", votable: true },
+          { id: "d4-ghibli", title: "Ghibli Museum", jp: "三鷹の森ジブリ美術館", kind: "experience", dur: "3 hrs", tags: ["everyone", "traditional"], status: "reserve", note: "Lottery months ahead. Nine tickets together is genuinely unlikely — decide who goes.", votable: true, link: "https://www.ghibli-museum.jp/en/" },
+          { id: "d4-karaoke", title: "Private-room karaoke", jp: "カラオケ", kind: "experience", dur: "2 hrs", tags: ["everyone", "energy", "nightlife"], status: "planned", note: "One room fits all nine. The cheapest great memory of the trip.", votable: true },
           { id: "d3-shinjuku", title: "Shinjuku in the evening", jp: "新宿", kind: "sight", dur: "2 hrs", tags: ["everyone", "nightlife"], status: "planned" }
         ]
       }
     ],
     blocks: {},
     food: ["tsukiji-tamago", "tsukiji-tuna", "tsukiji-wagyu", "tsukiji-daifuku"],
-    notes: ["If the group only does one Disney park, make it DisneySea — it's the more uniquely Japanese one.", "Whoever skips Disney should still get a great day, not a consolation prize."]
+    notes: ["If the group only does one Disney park, make it DisneySea — it's the more uniquely Japanese one.", "Whoever skips the parks should still get a great day, not a consolation prize."]
   },
 
   /* ---------------------------------------------------- 4 */
   {
-    n: 4, city: "tokyo", title: "Disneyland or flex", jp: "自由日",
-    theme: "Deliberately unplanned",
-    intent: "A second park day for some, a breathing day for everyone else.",
-    split: true,
-    tracks: [
-      {
-        id: "d4-dl", label: "Tokyo Disneyland", jp: "ディズニーランド", tags: ["teens", "energy"],
-        blurb: "Only if day 3 left people wanting more park.",
-        items: [
-          { id: "d4-disneyland", title: "Tokyo Disneyland", kind: "experience", dur: "Full day", tags: ["energy"], status: "optional", note: "Decide after DisneySea, not before." }
-        ]
-      },
-      {
-        id: "d4-flex", label: "Flex Tokyo", jp: "気ままに", tags: ["everyone", "relaxed"],
-        blurb: "Shopping, arcades, karaoke, Odaiba. Re-run anything that got cut.",
-        items: [
-          { id: "d4-odaiba", title: "Odaiba & DiverCity", jp: "お台場", kind: "sight", dur: "3 hrs", tags: ["teens", "anime"], status: "optional", note: "The life-size Unicorn Gundam transforms on a schedule.", votable: true },
-          { id: "d4-joypolis", title: "Tokyo Joypolis", kind: "experience", dur: "3 hrs", tags: ["teens", "energy", "anime"], status: "optional", votable: true },
-          { id: "d4-ghibli", title: "Ghibli Museum", jp: "三鷹の森ジブリ美術館", kind: "experience", dur: "3 hrs", tags: ["everyone", "traditional"], status: "reserve", note: "Lottery months ahead. Nine tickets together is genuinely unlikely — decide who goes.", votable: true, link: "https://www.ghibli-museum.jp/en/" },
-          { id: "d4-karaoke", title: "Private-room karaoke", jp: "カラオケ", kind: "experience", dur: "2 hrs", tags: ["everyone", "energy", "nightlife"], status: "planned", note: "One room fits nine. Do this somewhere in the Tokyo half — it's the cheapest great memory of the trip.", votable: true },
-          { id: "d4-arcade", title: "Arcades & gachapon", kind: "experience", dur: "2 hrs", tags: ["teens", "anime"], status: "optional" }
-        ]
-      }
-    ],
-    blocks: {},
-    food: ["tokyo-curry", "tokyo-tonkatsu", "konbini-chicken"],
-    notes: ["Keep this day soft. It's the pressure valve for the whole Tokyo week."]
-  },
-
-  /* ---------------------------------------------------- 5 */
-  {
-    n: 5, city: "tokyo", title: "Palace → Akihabara → Skytree", jp: "皇居・秋葉原・スカイツリー",
+    n: 4, city: "tokyo", title: "Palace → Akihabara → Skytree", jp: "皇居・秋葉原・スカイツリー",
     theme: "Old Tokyo, geek Tokyo, future Tokyo — in that order",
     intent: "One day that tells the whole story of the city, in sequence.",
     highlight: true,
@@ -143,7 +117,7 @@ const DAYS = [
 
   /* ---------------------------------------------------- 6 */
   {
-    n: 6, city: "tokyo", title: "teamLab & neon Shinjuku", jp: "チームラボ・新宿",
+    n: 5, city: "tokyo", title: "teamLab & neon Shinjuku", jp: "チームラボ・新宿",
     theme: "Digital art by day, Blade Runner by night",
     intent: "The most photographed thing the group will do, then the loudest.",
     highlight: true,
@@ -169,7 +143,7 @@ const DAYS = [
 
   /* ---------------------------------------------------- 7 */
   {
-    n: 7, city: "tokyo", title: "Sumo & last Tokyo day", jp: "両国・相撲",
+    n: 6, city: "tokyo", title: "Sumo & last Tokyo day", jp: "両国・相撲",
     theme: "Sleep in, then something nobody expected",
     intent: "Close Tokyo with the least touristy-feeling thing on the list.",
     blocks: {
@@ -192,7 +166,7 @@ const DAYS = [
 
   /* ---------------------------------------------------- 8 */
   {
-    n: 8, city: "kyoto", title: "Into Kyoto — market & Gion", jp: "京都へ",
+    n: 7, city: "kyoto", title: "Into Kyoto — market & Gion", jp: "京都へ",
     theme: "Arrive hungry",
     intent: "Shinkansen as an event, then eat your way down Nishiki and into old Kyoto at dusk.",
     arriveBy: "seg-tyo-kyo",
@@ -218,7 +192,7 @@ const DAYS = [
 
   /* ---------------------------------------------------- 9 */
   {
-    n: 9, city: "kyoto", title: "Hozugawa river day", jp: "保津川下り",
+    n: 8, city: "kyoto", title: "Hozugawa river day", jp: "保津川下り",
     theme: "Get out of the temples",
     intent: "An outdoor day placed deliberately between two heavy sightseeing days.",
     highlight: true,
@@ -242,7 +216,7 @@ const DAYS = [
 
   /* --------------------------------------------------- 10 */
   {
-    n: 10, city: "kyoto", title: "Arashiyama, early", jp: "嵐山",
+    n: 9, city: "kyoto", title: "Arashiyama, early", jp: "嵐山",
     theme: "Be in the bamboo before the crowds",
     intent: "A 7:00 start buys an empty bamboo grove. A 10:00 start buys a queue.",
     startEarly: "7:00–7:30 AM",
@@ -268,7 +242,7 @@ const DAYS = [
 
   /* --------------------------------------------------- 11 */
   {
-    n: 11, city: "kyoto", title: "Classic Kyoto", jp: "伏見稲荷・清水寺",
+    n: 10, city: "kyoto", title: "Classic Kyoto", jp: "伏見稲荷・清水寺",
     theme: "The postcard day, done properly",
     intent: "Torii gates at dawn, swords in the afternoon, Gion one last time.",
     startEarly: "7:00 AM",
@@ -284,7 +258,7 @@ const DAYS = [
       ],
       evening: [
         { id: "d11-gion2", title: "Last walk through Gion", kind: "sight", dur: "1 hr", tags: ["everyone", "traditional", "relaxed"], status: "planned" },
-        { id: "d11-kaiseki", title: "Kaiseki dinner", jp: "懐石", kind: "food", dur: "2.5 hrs", tags: ["adults", "food", "traditional"], status: "optional", note: "Long, formal, expensive, extraordinary. Do not drag four teenagers through it — split the group.", votable: true }
+        { id: "d11-kaiseki", title: "Kaiseki dinner", jp: "懐石", kind: "food", dur: "2.5 hrs", tags: ["adults", "food", "traditional"], status: "optional", note: "Long, formal, expensive, extraordinary. Not one to drag the whole group through — split off for it.", votable: true }
       ]
     },
     food: ["gion-tempura", "gion-shabu", "gion-yakitori", "kaiseki"],
@@ -293,7 +267,7 @@ const DAYS = [
 
   /* --------------------------------------------------- 12 */
   {
-    n: 12, city: "nara", title: "Nara deer, then Osaka", jp: "奈良・大阪へ",
+    n: 11, city: "nara", title: "Nara deer, then Osaka", jp: "奈良・大阪へ",
     theme: "Half a day with a thousand deer",
     intent: "A better use of the transfer day than another temple town.",
     arriveBy: "seg-kyo-nara",
@@ -313,12 +287,12 @@ const DAYS = [
       ]
     },
     food: ["nara-mochi", "umeda-yakiniku", "umeda-wagyu"],
-    notes: ["Replaces the original Hōryū-ji stop — broader, and far more interesting to teenagers.", "If someone in the group specifically wants ancient Buddhist architecture, Hōryū-ji goes back on the table."]
+    notes: ["Replaces the original Hōryū-ji stop — broader, and a better fit for a mixed group.", "If someone specifically wants ancient Buddhist architecture, Hōryū-ji goes back on the table."]
   },
 
   /* --------------------------------------------------- 13 */
   {
-    n: 13, city: "osaka", title: "Castle & Dōtonbori", jp: "大阪城・道頓堀",
+    n: 12, city: "osaka", title: "Castle & Dōtonbori", jp: "大阪城・道頓堀",
     theme: "One castle, then an entire evening of eating",
     intent: "Dōtonbori isn't a sightseeing stop. It's the night.",
     highlight: true,
@@ -329,7 +303,7 @@ const DAYS = [
       afternoon: [
         { id: "d13-kimono", title: "Kimono rental", jp: "着物", kind: "experience", dur: "Half day", tags: ["everyone", "traditional"], status: "optional", note: "The Kyoto-or-Osaka choice — only do it once.", votable: true },
         { id: "d13-hozenji", title: "Hōzenji Yokochō", jp: "法善寺横丁", kind: "sight", dur: "30 min", tags: ["everyone", "traditional"], status: "planned", note: "Moss-covered statue, stone lane, one block from the neon. The contrast is the point." },
-        { id: "d13-shinsaibashi", title: "Shinsaibashi & Amerikamura", jp: "心斎橋・アメ村", kind: "shopping", dur: "2.5 hrs", tags: ["teens", "shopping"], status: "planned", note: "Amerikamura is the streetwear/thrift quarter — a strong teen pick." }
+        { id: "d13-shinsaibashi", title: "Shinsaibashi & Amerikamura", jp: "心斎橋・アメ村", kind: "shopping", dur: "2.5 hrs", tags: ["teens", "shopping"], status: "planned", note: "Amerikamura is the streetwear/thrift quarter — a strong pick for the shoppers." }
       ],
       evening: [
         { id: "d13-cruise", title: "Tombori River Cruise", jp: "とんぼりリバークルーズ", kind: "experience", dur: "30 min", tags: ["everyone", "views", "relaxed"], status: "reserve", note: "Twenty minutes on the canal under all the signs. Cheap, and the best view of Dōtonbori there is.", votable: true, link: "https://www.ipponmatsu.co.jp/cruise/tombori.html" },
@@ -342,9 +316,9 @@ const DAYS = [
 
   /* --------------------------------------------------- 14 */
   {
-    n: 14, city: "osaka", title: "Universal — or Osaka wide", jp: "選択日",
+    n: 13, city: "osaka", title: "Universal — or Osaka wide", jp: "選択日",
     theme: "Last full day, and a real choice",
-    intent: "Super Nintendo World is the strongest teen pull of the trip. It's also a whole day.",
+    intent: "Super Nintendo World is one of the strongest pulls of the trip. It's also a whole day.",
     split: true,
     tracks: [
       {
@@ -375,9 +349,9 @@ const DAYS = [
     notes: ["Both tracks converge for the final evening. Agree on the meeting point in the morning."]
   },
 
-  /* --------------------------------------------------- 15 */
+  /* --------------------------------------------------- 14 */
   {
-    n: 15, city: "osaka", title: "Home", jp: "出発",
+    n: 14, city: "osaka", title: "Home", jp: "出発",
     theme: "Leave far more buffer than feels necessary",
     intent: "Nine people and an international check-in counter.",
     departBy: "seg-kix",

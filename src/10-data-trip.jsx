@@ -9,16 +9,16 @@ const TRIP = {
   jp: "日本 2027",
   subtitle: "Tokyo → Kyoto → Nara → Osaka",
   year: 2027,
-  // Tentative. The whole itinerary slides with this anchor.
+  // Locked. Sat May 29 (travel / fly out) → Fri Jun 11 (fly home). 14 days.
   defaultAnchor: "2027-05-29",
-  dayCount: 15,
-  datesFinal: false,
+  dayCount: 14,
+  datesFinal: true,
   party: { adults: 5, kids: 4, total: 9 },
   occasion: { who: "lucy", label: "Lucy's graduation trip", glyph: "🎓" },
   philosophy: [
     "Two major experiences a day — not a checklist sprint.",
     "Leave room for food, shopping, wandering and detours.",
-    "Nine people move slower than four. Budget for it.",
+    "Nine of us move slower than a couple. Budget for it.",
     "Split the group when interests split. That's a feature.",
     "Memorable over famous."
   ]
@@ -27,15 +27,15 @@ const TRIP = {
 const CITIES = {
   tokyo: {
     id: "tokyo", name: "Tokyo", jp: "東京", romaji: "tōkyō",
-    days: [1, 2, 3, 4, 5, 6, 7],
+    days: [1, 2, 3, 4, 5, 6],
     hue: "var(--tokyo)",
     pattern: "kumiko",
-    blurb: "Seven nights. Neon, shrines, arcades, and the best convenience stores on earth.",
+    blurb: "Six nights. Neon, shrines, arcades, and the best convenience stores on earth.",
     note: "Base for the first half. Everything below is a train ride apart."
   },
   kyoto: {
     id: "kyoto", name: "Kyoto", jp: "京都", romaji: "kyōto",
-    days: [8, 9, 10, 11],
+    days: [7, 8, 9, 10],
     hue: "var(--kyoto)",
     pattern: "asanoha",
     blurb: "Four nights. Temples at 7am, river rapids, bamboo, and a cooking class.",
@@ -43,7 +43,7 @@ const CITIES = {
   },
   nara: {
     id: "nara", name: "Nara", jp: "奈良", romaji: "nara",
-    days: [12],
+    days: [11],
     hue: "var(--nara)",
     pattern: "asanoha",
     blurb: "A half day on the way to Osaka. Deer, and the largest bronze Buddha in Japan.",
@@ -51,7 +51,7 @@ const CITIES = {
   },
   osaka: {
     id: "osaka", name: "Osaka", jp: "大阪", romaji: "ōsaka",
-    days: [12, 13, 14, 15],
+    days: [11, 12, 13, 14],
     hue: "var(--osaka)",
     pattern: "seigaiha",
     blurb: "Three nights. Loud, neon, and built around eating standing up.",
@@ -64,8 +64,8 @@ const CITY_ORDER = ["tokyo", "kyoto", "nara", "osaka"];
 /* --- Tag taxonomy: who it's for, and what kind of day it makes --- */
 const TAGS = {
   everyone:    { label: "Everyone",      group: "who",  glyph: "全" },
-  teens:       { label: "Teen pick",     group: "who",  glyph: "青" },
-  adults:      { label: "Adults",        group: "who",  glyph: "大" },
+  teens:       { label: "Lively pick",   group: "who",  glyph: "青" },
+  adults:      { label: "Low-key pick",  group: "who",  glyph: "大" },
   split:       { label: "Split group",   group: "who",  glyph: "分" },
   traditional: { label: "Traditional",   group: "kind", glyph: "伝" },
   anime:       { label: "Anime / games", group: "kind", glyph: "遊" },
@@ -102,7 +102,7 @@ const SEGMENTS = [
   },
   {
     id: "seg-tyo-kyo",
-    afterDay: 7, from: "Tokyo", to: "Kyoto",
+    afterDay: 6, from: "Tokyo", to: "Kyoto",
     mode: "shinkansen", jp: "東海道新幹線",
     label: "Tōkaidō Shinkansen",
     detail: "≈2h15m on the Nozomi. Treat the train as part of the trip, not transport.",
@@ -110,7 +110,7 @@ const SEGMENTS = [
   },
   {
     id: "seg-kyo-nara",
-    afterDay: 11, from: "Kyoto", to: "Nara",
+    afterDay: 10, from: "Kyoto", to: "Nara",
     mode: "train", jp: "近鉄",
     label: "Kintetsu / JR to Nara",
     detail: "≈45 min. Check out of Kyoto first and forward luggage ahead to Osaka.",
@@ -118,7 +118,7 @@ const SEGMENTS = [
   },
   {
     id: "seg-nara-osa",
-    afterDay: 12, from: "Nara", to: "Osaka",
+    afterDay: 11, from: "Nara", to: "Osaka",
     mode: "train", jp: "大阪へ",
     label: "Nara → Osaka",
     detail: "≈45 min into Namba or Umeda depending on the hotel.",
@@ -126,7 +126,7 @@ const SEGMENTS = [
   },
   {
     id: "seg-kix",
-    afterDay: 15, from: "Osaka", to: "USA",
+    afterDay: 14, from: "Osaka", to: "USA",
     mode: "flight", jp: "出発",
     label: "Fly home from KIX",
     detail: "Nine people, international check-in. Leave far more buffer than feels necessary.",

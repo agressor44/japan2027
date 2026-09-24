@@ -197,7 +197,7 @@ function PageCrew() {
       <div className="rule" />
       <SectionHead eyebrow="Split days" title="Who's where" right={<span className="eyebrow">{splitDays.length} days split</span>} />
       <p className="lede" style={{ fontSize: 14, marginBottom: 16 }}>
-        Three days deliberately break the group in two. Assign people here or on the day itself — same list either way.
+        Some days deliberately break the group in two. Assign people here or on the day itself — same list either way.
       </p>
       <div className="whowhere">
         {splitDays.map(function (d) {
@@ -245,11 +245,10 @@ function PageCrew() {
 
       {/* ---------- what the mix means ---------- */}
       <div className="rule" />
-      <SectionHead eyebrow="Group considerations" title="What this particular mix means" />
+      <SectionHead eyebrow="Group considerations" title="Planning for nine" />
       <div className="callout">
-        <div>The four young travelers are 18, 12, 10 and about 8 — one graduate and three children, not four teenagers. Anything built for "teens" should be re-read with a 10-year-old and an 8-year-old in mind.</div>
-        <div>Two parents in the group are medical — a nurse and a physician. Useful to know, not a reason to make them the trip's first-aid kit.</div>
-        <div>Five adults means at least one kaiseki-shaped evening should exist without dragging everyone into it.</div>
+        <div>Interests vary widely across the group — the survey is what tells us who's actually up for what, so fill it in.</div>
+        <div>Keep room for at least one calmer, grown-up evening that nobody's dragged into — that's what the split days are for.</div>
         <div>Nine people means reservations, reserved train seats, and a standing meeting point every single day.</div>
         <div>Everyone should have data on their phone and the hotel address written down. Phones die.</div>
       </div>

@@ -137,7 +137,7 @@ const SURVEY = [
       },
       {
         id: "themeParks", label: "Theme parks", type: "choice",
-        help: "There are up to three park days on the table.",
+        help: "There are a couple of park days on the table — Disney in Tokyo, Universal in Osaka.",
         options: [
           { id: "love", label: "Love them", sub: "Rope drop to fireworks" },
           { id: "interested", label: "Interested", sub: "One day would be great" },

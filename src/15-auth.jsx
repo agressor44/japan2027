@@ -264,7 +264,7 @@ function AuthGate() {
         ) : null}
 
         <p className="gate-foot">
-          Nine travelers · five adults, four kids · {fmtRange(S.anchor, TRIP.dayCount)} (tentative)
+          Nine travelers · {fmtRange(S.anchor, TRIP.dayCount)}
         </p>
       </div>
     </div>

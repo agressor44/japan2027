@@ -49,7 +49,7 @@ function PageHome() {
               })}
             </div>
             <div className="row" style={{ marginTop: 18 }}>
-              <span className="tentative">Dates tentative</span>
+              {TRIP.datesFinal ? null : <span className="tentative">Dates tentative</span>}
               <span className="eyebrow" style={{ letterSpacing: ".1em" }}>{fmtRange(S.anchor, TRIP.dayCount)}</span>
             </div>
             <a className="occasion" href="#/crew">
@@ -66,7 +66,7 @@ function PageHome() {
       {/* ---------- stats ---------- */}
       <div className="stats" style={{ marginTop: 16 }}>
         <div className="stat"><b>{TRIP.dayCount}</b><span>Days</span></div>
-        <div className="stat"><b>{TRIP.party.total}</b><span>{TRIP.party.adults} adults · {TRIP.party.kids} kids</span></div>
+        <div className="stat"><b>{TRIP.party.total}</b><span>Travelers</span></div>
         <div className="stat"><b>4</b><span>Cities</span></div>
         <div className="stat"><b>{acts.length}</b><span>Things on the list</span></div>
       </div>
@@ -126,7 +126,7 @@ function PageHome() {
       <div className="rule" />
 
       {/* ---------- the shape of the trip ---------- */}
-      <SectionHead eyebrow="The shape of it" title="Four stops, fifteen days" right={<a className="btn sm" href="#/route">See the route</a>} />
+      <SectionHead eyebrow="The shape of it" title="Four stops, fourteen days" right={<a className="btn sm" href="#/route">See the route</a>} />
       <div className="routerail">
         {CITY_ORDER.map(function (cid) {
           const c = CITIES[cid];

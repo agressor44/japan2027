@@ -78,7 +78,13 @@ function StoreProvider({ children }) {
   const [authReady, setAuthReady] = useState(!FIREBASE_ON);
   const docRef = useRef(null);
 
-  /* --- backend A: Firebase (self-hosted site) --- */
+  /* --- backend A: Firebase (self-hosted site) ---
+     The plan doc is protected by rules that require request.auth. The
+     Firestore listener must therefore only open AFTER auth is ready and
+     a user is signed in — otherwise the first read races ahead of the
+     auth token, gets a terminal permission-denied, and the listener
+     never recovers (it pins the app to "local" forever). So we attach
+     and tear down the snapshot inside onAuthStateChanged. */
   useEffect(function () {
     if (!FIREBASE_ON) return;
     let alive = true, unsubDoc = null, unsubAuth = null;
@@ -86,11 +92,7 @@ function StoreProvider({ children }) {
     initFirebase().then(function (f) {
       if (!alive) return;
       if (!f) { setSync("local"); setAuthReady(true); return; }
-      unsubAuth = f.auth.onAuthStateChanged(function (u) {
-        if (!alive) return;
-        setUser(fbUser(u));
-        setAuthReady(true);
-      });
+
       const ref = f.db.doc(PLAN_DOC);
       // Firestore's set(..., {merge:true}) deep-merges maps and replaces
       // arrays wholesale — exactly the semantics patch() is written for.
@@ -101,11 +103,24 @@ function StoreProvider({ children }) {
         update: function (delta) { return ref.set(delta, { merge: true }); },
         set: function (full) { return ref.set(full, { merge: true }); }
       };
-      unsubDoc = ref.onSnapshot(function (snap) {
+
+      function stopDoc() { if (unsubDoc) { unsubDoc(); unsubDoc = null; } }
+
+      unsubAuth = f.auth.onAuthStateChanged(function (u) {
         if (!alive) return;
-        setSync("shared");
-        if (snap.exists) setPlan(deepMerge(BLANK, snap.data()));
-      }, function () { if (alive) setSync("local"); });
+        setUser(fbUser(u));
+        setAuthReady(true);
+
+        // Re-evaluate the listener whenever auth changes.
+        stopDoc();
+        if (!u) { setSync("local"); return; }   // signed out → local only
+        setSync("connecting");
+        unsubDoc = ref.onSnapshot(function (snap) {
+          if (!alive) return;
+          setSync("shared");
+          if (snap.exists) setPlan(deepMerge(BLANK, snap.data()));
+        }, function () { if (alive) setSync("local"); });
+      });
     }).catch(function () { if (alive) { setSync("local"); setAuthReady(true); } });
     return function () { alive = false; if (unsubDoc) unsubDoc(); if (unsubAuth) unsubAuth(); };
   }, []);

@@ -549,6 +549,20 @@ input, select, textarea { font: inherit; color: inherit; }
   .res-ctl { justify-content: flex-start; }
   .ww { grid-template-columns: 1fr; }
   .dayhead { padding: 20px; }
+
+  /* --- declutter: tighter rhythm, less visual noise on small screens --- */
+  .page { padding-block: 18px 64px; }
+  .tx { display: none; }                     /* drop decorative background textures */
+  .rule { margin: 22px 0; }                  /* pull sections closer together */
+  .sec-head { margin-bottom: 12px; }
+  .card { padding: 15px; }
+  .opts { grid-template-columns: 1fr; gap: 10px; }   /* one vote card per row */
+  .opt { padding: 15px 16px; gap: 8px; }
+  .hero { border-radius: var(--r); }
+  .hero-jp { font-size: 40px; }
+  .routerail { margin-top: 4px; }
+  .lede { font-size: 13.5px; }
+  .bdays { gap: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
